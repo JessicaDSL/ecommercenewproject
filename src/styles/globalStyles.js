@@ -8,8 +8,20 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+  
   body {
     font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
  
