@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoSearch } from "react-icons/go";
+import { ProductContext } from "../../context/ContextApi";
 
 import Photo from "../../assets/image/Jessy.jpg";
 import ProductCard from "../ProductCard";
+
 import {
   Container,
   Header,
@@ -12,12 +14,15 @@ import {
   ListItem,
 } from "./styles";
 
-const ProductList = ({ results = [] }) => {
+const ProductList = () => {
+  const { products } = useContext(ProductContext);
+
   return (
     <Container>
       <Header>
         <ImageLogin>
           <h1>Sneakers</h1>
+
           <img src={Photo} alt="Foto Perfil" />
         </ImageLogin>
         <Search>
@@ -27,17 +32,20 @@ const ProductList = ({ results = [] }) => {
         <hr />
       </Header>
       <List>
-        {results.map((item) => (
-          <ListItem>
+        <ListItem>
+          {products.map((item, key) => (
             <ProductCard
-              key={item.id}
+              key={key}
               id={item.id}
               description={item.description}
               price={item.price}
               photo={item.thumbnailURL}
+              size={item.size}
+              quantity={item.quantity}
+              color={item.color}
             />
-          </ListItem>
-        ))}
+          ))}
+        </ListItem>
       </List>
     </Container>
   );
