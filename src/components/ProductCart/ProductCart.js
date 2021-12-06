@@ -20,15 +20,19 @@ const ProductCart = ({ description, id, color, price, photo }) => {
           <p>Phone no: 01312428200</p>
           <p>Address: Redwood City, 2000.</p>
         </Description>
-        <span><FaMinusCircle /></span>
+        <span>
+          <FaMinusCircle />
+        </span>
       </Container>
       <Price>
         <p>
-        <h4>Total Cost</h4> 
-        <span>Delivery included</span>
+          <h4>Total Cost</h4>
+          <span>Delivery included</span>
         </p>
-        <strong><MdOutlineAttachMoney />100</strong>
-
+        <strong>
+          <MdOutlineAttachMoney />
+          {price}
+        </strong>
       </Price>
     </Background>
   );
