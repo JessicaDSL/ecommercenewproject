@@ -8,6 +8,7 @@ import ProductCart from "../ProductCart/ProductCart";
 
 import { ProductContext } from "../../context/ContextApi";
 import { Container, Login, CheckoutLine, ProductInfo } from "./styles";
+import { Link } from "react-router-dom";
 
 const CheckoutPayment = () => {
   const { cart } = useContext(ProductContext);
@@ -16,9 +17,11 @@ const CheckoutPayment = () => {
     <Container>
       <div>
         <Login>
+          <Link to='/'>
           <button>
             <IoArrowBack /> <span>Back</span>
           </button>
+          </Link>
           <h1>Review and Confirmation</h1>
           <img src={Photo} alt="Foto Perfil" />
         </Login>
@@ -43,11 +46,7 @@ const CheckoutPayment = () => {
         {cart.map((item) => (
           <ProductCart
             key={item.id}
-            description={item.description}
-            id={item.id}
-            color={item.color}
-            price={item.price}
-            photo={item.maxresURL}
+            item={item}
           />
         ))}
       </ProductInfo>
