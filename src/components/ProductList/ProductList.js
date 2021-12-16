@@ -13,6 +13,7 @@ import {
   List,
   ListItem,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
@@ -22,8 +23,9 @@ const ProductList = () => {
       <Header>
         <ImageLogin>
           <h1>Sneakers</h1>
-
-          <img src={Photo} alt="Foto Perfil" />
+          <Link to="/productcart">
+            <img src={Photo} alt="Foto Perfil" />
+          </Link>
         </ImageLogin>
         <Search>
           <GoSearch />
@@ -33,17 +35,8 @@ const ProductList = () => {
       </Header>
       <List>
         <ListItem>
-          {products.map((item, key) => (
-            <ProductCard
-              key={key}
-              id={item.id}
-              description={item.description}
-              price={item.price}
-              photo={item.thumbnailURL}
-              size={item.size}
-              quantity={item.quantity}
-              color={item.color}
-            />
+          {products.map((item) => (
+            <ProductCard key={item.id} item={item} />
           ))}
         </ListItem>
       </List>
