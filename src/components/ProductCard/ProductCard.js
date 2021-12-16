@@ -1,49 +1,46 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import {formatCurrency} from '../../utils/utils'
+import { formatCurrency } from "../../utils/utils";
 import { Container, Info, Btn } from "./styles";
 import { ProductContext } from "../../context/ContextApi";
 
-const ProductCard = ({
-  description,
-  price,
-  photo,
-  key,
-  color,
-  id,
-  size = [],
-  quantity = [],
-}) => {
-  const { sizeProduct, handleGetSizeOfProduct, handleAddNewProduct } =
-    useContext(ProductContext);
+const ProductCard = ({ item }) => {
+  const size = item.size;
+  const quantity = item.quantity;
+
+  const { handleAddNewProduct } = useContext(ProductContext);
 
   const [quantityValue, setQuantityValue] = useState(1);
-  const [totalResult, setTotalResult] = useState(price);
+  const [sizeProduct, setSizeProduct] = useState();
+  const [totalResult, setTotalResult] = useState(item.price);
 
   useEffect(() => {
-    const totalValue = quantityValue * price;
+    const totalValue = quantityValue * item.price;
     setTotalResult(totalValue);
-  }, [quantityValue, price, totalResult]);
-
-  function handleGetQuantityOfProduct(e) {
-    setQuantityValue(e.target.value);
-    e.preventDefault();
-  }
-
+  }, [quantityValue, item.price, totalResult]);
 
   return (
     <Container>
-      <img src={photo} alt={`Foto do produto ${description}`} />
-      <h4>{description}</h4>
+      <img
+        src={item.thumbnailURL}
+        alt={`Foto do produto ${item.description}`}
+      />
+      <h4>{item.description}</h4>
       <Info>
         Size
-        <select value={key} onChange={handleGetSizeOfProduct}>
+        <select
+          onChange={(e) => setSizeProduct(e.target.value)}
+          value={sizeProduct}
+        >
           {size.map((size) => (
             <option>{size}</option>
           ))}
         </select>
         Quantity
-        <select value={key} onChange={(e) => handleGetQuantityOfProduct(e)}>
+        <select
+          onChange={(e) => setQuantityValue(e.target.value)}
+          value={quantityValue}
+        >
           {quantity.map((number) => (
             <option key={number.value} value={number.value}>
               {number}
@@ -55,7 +52,15 @@ const ProductCard = ({
       <h2>${formatCurrency(totalResult)}</h2>
       <Btn
         onClick={() =>
-          handleAddNewProduct(quantityValue, color, sizeProduct, id, description, photo, totalResult)
+          handleAddNewProduct(
+            quantityValue,
+            item.color,
+            sizeProduct,
+            item.id,
+            item.description,
+            item.maxresURL,
+            totalResult
+          )
         }
       >
         Add to cart
