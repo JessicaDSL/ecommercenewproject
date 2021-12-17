@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoSearch } from "react-icons/go";
+import { ProductContext } from "../../context/ContextApi";
 
 import Photo from "../../assets/image/Jessy.jpg";
 import ProductCard from "../ProductCard";
+
 import {
   Container,
   Header,
@@ -11,14 +13,19 @@ import {
   List,
   ListItem,
 } from "./styles";
+import { Link } from "react-router-dom";
 
-const ProductList = ({ results = [] }) => {
+const ProductList = () => {
+  const { products } = useContext(ProductContext);
+
   return (
     <Container>
       <Header>
         <ImageLogin>
           <h1>Sneakers</h1>
-          <img src={Photo} alt="Foto Perfil" />
+          <Link to="/productcart">
+            <img src={Photo} alt="Foto Perfil" />
+          </Link>
         </ImageLogin>
         <Search>
           <GoSearch />
@@ -27,17 +34,11 @@ const ProductList = ({ results = [] }) => {
         <hr />
       </Header>
       <List>
-        {results.map((item) => (
-          <ListItem>
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              description={item.description}
-              price={item.price}
-              photo={item.thumbnailURL}
-            />
-          </ListItem>
-        ))}
+        <ListItem>
+          {products.map((item) => (
+            <ProductCard key={item.id} item={item} />
+          ))}
+        </ListItem>
       </List>
     </Container>
   );

@@ -1,16 +1,70 @@
-import React from "react";
-import { MdKeyboardArrowDown } from 'react-icons/md'
+import React, { useState, useEffect, useContext } from "react";
 
-import { Container, Info, Btn } from './styles'
+import { formatCurrency } from "../../utils/utils";
+import { Container, Info, Btn } from "./styles";
+import { ProductContext } from "../../context/ContextApi";
 
-const ProductCard = ({ description, price, photo }) => {
+const ProductCard = ({ item }) => {
+  const size = item.size;
+  const quantity = item.quantity;
+
+  const { handleAddNewProduct } = useContext(ProductContext);
+
+  const [quantityValue, setQuantityValue] = useState(1);
+  const [sizeProduct, setSizeProduct] = useState();
+  const [totalResult, setTotalResult] = useState(item.price);
+
+  useEffect(() => {
+    const totalValue = quantityValue * item.price;
+    setTotalResult(totalValue);
+  }, [quantityValue, item.price, totalResult]);
+
   return (
     <Container>
-        <img src={photo} alt={`Foto do produto ${description}`} />
-        <h4>{description}</h4>
-        <Info>Size <span>41</span> <button><MdKeyboardArrowDown /></button> Quantity <span>1</span> <button><MdKeyboardArrowDown /></button></Info>
-        <h2>$ {price}</h2>
-        <Btn>Add to cart</Btn>
+      <img
+        src={item.thumbnailURL}
+        alt={`Foto do produto ${item.description}`}
+      />
+      <h4>{item.description}</h4>
+      <Info>
+        Size
+        <select
+          onChange={(e) => setSizeProduct(e.target.value)}
+          value={sizeProduct}
+        >
+          {size.map((size) => (
+            <option>{size}</option>
+          ))}
+        </select>
+        Quantity
+        <select
+          onChange={(e) => setQuantityValue(e.target.value)}
+          value={quantityValue}
+        >
+          {quantity.map((number) => (
+            <option key={number.value} value={number.value}>
+              {number}
+            </option>
+          ))}
+        </select>
+      </Info>
+
+      <h2>${formatCurrency(totalResult)}</h2>
+      <Btn
+        onClick={() =>
+          handleAddNewProduct(
+            quantityValue,
+            item.color,
+            sizeProduct,
+            item.id,
+            item.description,
+            item.maxresURL,
+            totalResult
+          )
+        }
+      >
+        Add to cart
+      </Btn>
     </Container>
   );
 };

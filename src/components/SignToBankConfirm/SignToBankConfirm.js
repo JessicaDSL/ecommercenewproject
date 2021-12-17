@@ -2,6 +2,7 @@ import React from "react";
 import HeaderSignBank from "../HeaderSignBank/HeaderSignBank";
 import { Background, Container, List, ListItem, Label, Input } from "./styles";
 import SecureInternetCertificate from '../SecureInternetCertificate'
+import { Link } from "react-router-dom";
 //"Choose an account"
 
 const SignToBankConfirm = () => {
@@ -23,7 +24,9 @@ const SignToBankConfirm = () => {
           <Input type="checkbox" />
           <span>Do not show this message again</span>
         </Label>
+        <Link to='/signin'>
         <button>Ok, got it!</button>
+        </Link>
       </Container>
       <SecureInternetCertificate />
     </Background>
