@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Chase from "../../assets/image/Chase.png";
 import HeaderSignBank from "../HeaderSignBank/HeaderSignBank";
@@ -22,7 +23,9 @@ const SignBankLogin = () => {
           By clicking 'Agree & Sign in' you agree to the PayWithMyBank{" "}
           <a href="#">Terms of Use</a>
         </p>
+        <Link to='/chooseaccount'>
         <Button>Agree & Sing In</Button>
+        </Link>
       </Form>
       <strong>
         <SecureInternetCertificate />

@@ -6,6 +6,7 @@ import Chase from "../../assets/image/Chase.png";
 import HeaderSignBank from "../HeaderSignBank/HeaderSignBank";
 import SecureInternetCertificate from "../SecureInternetCertificate";
 import { Background, Container, Form, Section, Button} from "./styles";
+import { Link } from "react-router-dom";
 
 const ChooseAccount = () => {
   const title = "Choose an account";
@@ -32,7 +33,9 @@ const ChooseAccount = () => {
           </p>
         </Section>
         <a href="#">Printable version</a>
+        <Link to='/confirm'>
         <Button>Continue</Button>
+        </Link>
       </Container>
         <SecureInternetCertificate />
     </Background>

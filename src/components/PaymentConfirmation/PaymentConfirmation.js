@@ -5,21 +5,10 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 
 import Photo from "../../assets/image/Jessy.jpg";
 import { Container, Login, Background, List, ListItem, Button } from "./styles";
+import { Link } from "react-router-dom";
 
-const PaymentConfirmation = ({ product = [] }) => {
-  return (
-    <Container>
-      <Login>
-        <button>
-          <IoArrowBack /> <span>Back</span>
-        </button>
-        <img src={Photo} alt="Foto Perfil" />
-      </Login>
-      <h2>Review and confirmation</h2>
-      <Background>
-        <h3>Order Summary</h3>
-        <div>
-          <img
+
+/* <img
             src={product[0].thumbnailURL}
             alt={`Logo do ${product[0].thumbnailURL}}`}
           />
@@ -27,7 +16,25 @@ const PaymentConfirmation = ({ product = [] }) => {
             <h4>{product[0].description}</h4>
             <h6>x 1, {product[0].color}, Size 41</h6>
             <h6>Item #{product[0].id}</h6>
-          </p>
+          </p>*/
+const PaymentConfirmation = ({ product = [] }) => {
+  return (
+    <Container>
+      <Login>
+        <Link to='/'>
+        <button>
+          <IoArrowBack /> <span>Back</span>
+        </button>
+        </Link>
+        <Link to='/productcart'>
+        <img src={Photo} alt="Foto Perfil" />
+        </Link>
+      </Login>
+      <h2>Review and confirmation</h2>
+      <Background>
+        <h3>Order Summary</h3>
+        <div>
+         
         </div>
       </Background>
       <Background>

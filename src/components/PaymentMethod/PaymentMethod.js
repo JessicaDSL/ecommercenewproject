@@ -9,6 +9,7 @@ import America from "../../assets/image/paymentform/america.png";
 import Wf from "../../assets/image/paymentform/wf.png";
 import Pnc from "../../assets/image/paymentform/pnc.png";
 import Citi from "../../assets/image/paymentform/citi.png";
+import { Link } from "react-router-dom";
 
 const PaymentMethod = ({ product }) => {
   return (
@@ -38,7 +39,9 @@ const PaymentMethod = ({ product }) => {
           Apple Pay <img src={Apple} alt="logo do Apple" />
         </ListItem>
       </List>
+      <Link to='/selectbank'>
       <Btn>Continue</Btn>
+      </Link>
     </Container>
   );
 };
