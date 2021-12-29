@@ -7,7 +7,7 @@ import Photo from "../../assets/image/Jessy.jpg";
 import ProgressBar from "../../components/ProgressBar";
 import { ProductContext } from "../../context/ContextApi";
 import PaymentMethod from "../../components/PaymentMethod";
-import ProductCart from "../../components/ProductCart/ProductCart";
+import CardListItem from "../../components/CardListItem";
 
 import { Container, Header, ProductInfo } from "./styles";
 
@@ -30,7 +30,7 @@ const Cart = () => {
       <ProgressBar />
       <ProductInfo>
         {cart.map((item) => (
-          <ProductCart key={item.id} item={item} />
+          <CardListItem key={item.id} item={item} />
         ))}
       </ProductInfo>
       <h3>Payment method</h3>

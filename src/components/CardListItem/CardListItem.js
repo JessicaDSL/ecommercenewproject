@@ -6,11 +6,8 @@ import { ProductContext } from "../../context/ContextApi";
 
 import { Container, Background, Image, Description, Price } from "./styles";
 
-const ProductCart = ({ item }) => {
-
-  const {handleDeleteItem} = useContext(ProductContext)
-
-
+const CardListItem = ({ item }) => {
+  const { handleDeleteItem } = useContext(ProductContext);
 
   return (
     <Background>
@@ -20,7 +17,9 @@ const ProductCart = ({ item }) => {
         </Image>
         <Description>
           <h3>{item.description}</h3>
-          <p>x{item.quantity}, {item.color}, Size {item.size} </p>
+          <p>
+            x{item.quantity}, {item.color}, Size {item.size}{" "}
+          </p>
           <p>Item #{item.id}</p>
           <h5>Delivery Details</h5>
           <p>John Smiths</p>
@@ -45,4 +44,4 @@ const ProductCart = ({ item }) => {
   );
 };
 
-export default ProductCart;
+export default CardListItem;
