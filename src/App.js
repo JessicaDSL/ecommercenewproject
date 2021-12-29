@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./page/Home";
-import Cart from "./page/Cart/Cart";
-import SelectBank from "./components/SelectBank";
+import Cart from "./page/Cart";
 import SignToBankConfirm from "./components/SignToBankConfirm";
 import ChooseAccount from "./components/ChooseAccount";
 import GlobalStyle from "./styles/globalStyles";
 import SignBankLogin from "./components/SignBankLogin/SignBankLogin";
 import PaymentConfirmation from "./components/PaymentConfirmation";
+import ModalBankSelection from "./components/ModalBankSelection";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart/" element={<Cart />} />
-        <Route path="/selectbank" element={<SelectBank />} />
+        <Route path="/selectbank" element={<ModalBankSelection />} />
         <Route path="/continue" element={<SignToBankConfirm />} />
         <Route path="/signin" element={<SignBankLogin />} />
         <Route path="/chooseaccount" element={<ChooseAccount />} />
