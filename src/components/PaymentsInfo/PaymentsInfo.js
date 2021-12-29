@@ -1,23 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { BsBank2 } from "react-icons/bs";
 import { MdOutlineAttachMoney } from "react-icons/md";
 
 import Photo from "../../assets/image/Jessy.jpg";
+import { ProductContext } from "../../context/ContextApi";
 import { Container, Login, Background, List, ListItem, Button } from "./styles";
 import { Link } from "react-router-dom";
 
 
-/* <img
-            src={product[0].thumbnailURL}
-            alt={`Logo do ${product[0].thumbnailURL}}`}
-          />
-          <p>
-            <h4>{product[0].description}</h4>
-            <h6>x 1, {product[0].color}, Size 41</h6>
-            <h6>Item #{product[0].id}</h6>
-          </p>*/
-const PaymentConfirmation = ({ product = [] }) => {
+const PaymentsInfo = ({ product = [] }) => {
+
+  const { amount } = useContext(ProductContext)
+
   return (
     <Container>
       <Login>
@@ -51,7 +46,7 @@ const PaymentConfirmation = ({ product = [] }) => {
             </div>
             <p>
               <MdOutlineAttachMoney />
-              100
+              {amount}
             </p>
           </ListItem>
         </List>
@@ -61,4 +56,4 @@ const PaymentConfirmation = ({ product = [] }) => {
   );
 };
 
-export default PaymentConfirmation;
+export default PaymentsInfo;
