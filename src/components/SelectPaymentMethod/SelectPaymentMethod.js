@@ -11,7 +11,7 @@ import Pnc from "../../assets/image/paymentform/pnc.png";
 import Citi from "../../assets/image/paymentform/citi.png";
 import { Link } from "react-router-dom";
 
-const PaymentMethod = ({ product }) => {
+const SelectPaymentMethod = ({ product }) => {
   return (
     <Container>
       <List>
@@ -39,11 +39,11 @@ const PaymentMethod = ({ product }) => {
           Apple Pay <img src={Apple} alt="logo do Apple" />
         </ListItem>
       </List>
-      <Link to='/selectbank'>
-      <Btn>Continue</Btn>
+      <Link to="/selectbank">
+        <Btn>Continue</Btn>
       </Link>
     </Container>
   );
 };
 
-export default PaymentMethod;
+export default SelectPaymentMethod;
