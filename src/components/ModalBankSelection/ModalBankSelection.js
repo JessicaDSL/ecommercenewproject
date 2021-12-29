@@ -3,17 +3,17 @@ import React from "react";
 import { termsOfAuthorize } from "./content";
 
 import Chase from "../../assets/image/Chase.png";
-import HeaderSignBank from "../HeaderSignBank/HeaderSignBank";
 import SecureInternetCertificate from "../SecureInternetCertificate";
-import { Background, Container, Form, Section, Button} from "./styles";
+import { Background, Container, Form, Section, Button } from "./styles";
 import { Link } from "react-router-dom";
+import HeaderModal from "../HeaderModal";
 
-const ChooseAccount = () => {
+const ModalBankSelection = () => {
   const title = "Choose an account";
   return (
     <Background>
       <Container>
-        <HeaderSignBank title={title} />
+        <HeaderModal title={title} />
         <img src={Chase} alt="logo" />
         <Form>
           <p>
@@ -33,13 +33,13 @@ const ChooseAccount = () => {
           </p>
         </Section>
         <a href="#">Printable version</a>
-        <Link to='/confirm'>
-        <Button>Continue</Button>
+        <Link to="/confirm">
+          <Button>Continue</Button>
         </Link>
       </Container>
-        <SecureInternetCertificate />
+      <SecureInternetCertificate />
     </Background>
   );
 };
 
-export default ChooseAccount;
+export default ModalBankSelection;
