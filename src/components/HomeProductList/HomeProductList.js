@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../../context/ContextApi";
-
-import ListItemCard from "../ProductCard";
+import HomeListItemCard from "../HomeListItemCard";
 
 import { List, ListItem } from "./styles";
 
@@ -12,7 +11,7 @@ const HomeProductList = () => {
     <List>
       <ListItem>
         {products.map((item) => (
-          <ListItemCard key={item.id} item={item} />
+          <HomeListItemCard key={item.id} item={item} />
         ))}
       </ListItem>
     </List>

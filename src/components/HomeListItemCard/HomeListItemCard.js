@@ -4,14 +4,14 @@ import { formatCurrency } from "../../utils/utils";
 import { Container, Info, Btn } from "./styles";
 import { ProductContext } from "../../context/ContextApi";
 
-const ProductCard = ({ item }) => {
+const ListItemCard = ({ item }) => {
   const size = item.size;
   const quantity = item.quantity;
 
   const { handleAddNewProduct } = useContext(ProductContext);
 
   const [quantityValue, setQuantityValue] = useState(1);
-  const [sizeProduct, setSizeProduct] = useState();
+  const [sizeProduct, setSizeProduct] = useState(37);
   const [totalResult, setTotalResult] = useState(item.price);
 
   useEffect(() => {
@@ -69,4 +69,4 @@ const ProductCard = ({ item }) => {
   );
 };
 
-export default ProductCard;
+export default ListItemCard;
