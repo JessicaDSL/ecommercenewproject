@@ -9,6 +9,8 @@ import GlobalStyle from "./styles/globalStyles";
 import SignBankLogin from "./components/SignBankLogin/SignBankLogin";
 import PaymentsInfo from "./components/PaymentsInfo";
 import SelectBankFlag from "./components/SelectBankFlag";
+import CardPayment from "./components/CardPayment/CardPayment";
+import ApplePayment from "./components/ApplePayment";
 
 function App() {
   return (
@@ -16,11 +18,13 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cart/" element={<Cart />} />
+        <Route path="/cart/:paymentform" element={<Cart />} />
         <Route path="/selectbank" element={<SelectBankFlag />} />
         <Route path="/continue" element={<SignToBankConfirm />} />
         <Route path="/signin" element={<SignBankLogin />} />
         <Route path="/chooseaccount" element={<ModalBankSelection />} />
+        <Route path="/cardpayment" element={<CardPayment />} />
+        <Route path="/applepayment" element={<ApplePayment />} />
         <Route path="/confirm" element={<PaymentsInfo />} />
       </Routes>
     </Router>
