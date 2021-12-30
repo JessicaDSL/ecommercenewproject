@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Chase from "../../assets/image/Chase.png";
-import HeaderSignBank from "../HeaderSignBank/HeaderSignBank";
+import HeaderModal from "../HeaderModal";
 import SecureInternetCertificate from "../SecureInternetCertificate";
 import { Container, Form, Button, Fieldset, Legend, Input } from "./styles";
 
@@ -11,7 +11,7 @@ const SignBankLogin = () => {
 
   return (
     <Container>
-      <HeaderSignBank title={title} />
+      <HeaderModal title={title} />
       <img src={Chase} alt="Logo do Chase" />
       <Form>
         <Fieldset>
