@@ -51,7 +51,7 @@ const Home = () => {
       <Header>
         <ImageLogin>
           <h1>Sneakers</h1>
-          <Link to="/cart">
+          <Link to="/cart/initial">
             <img src={Photo} alt="Foto Perfil" />
           </Link>
         </ImageLogin>

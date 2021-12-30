@@ -26,7 +26,7 @@ const HeaderModal = ({ title }) => {
         <h2>{title}</h2>
         <span>Amount: ${formatCurrency(amount)}</span>
       </div>
-      <Link to="/cart">
+      <Link to="/cart/initial">
         <button>
           <IoMdClose />
         </button>
