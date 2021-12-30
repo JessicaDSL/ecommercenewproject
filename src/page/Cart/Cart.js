@@ -6,7 +6,7 @@ import Photo from "../../assets/image/Jessy.jpg";
 
 import ProgressBar from "../../components/ProgressBar";
 import { ProductContext } from "../../context/ContextApi";
-import PaymentMethod from "../../components/PaymentMethod";
+import SelectPaymentMethod from "../../components/SelectPaymentMethod";
 import CardListItem from "../../components/CardListItem";
 
 import { Container, Header, ProductInfo } from "./styles";
@@ -34,7 +34,7 @@ const Cart = () => {
         ))}
       </ProductInfo>
       <h3>Payment method</h3>
-      <PaymentMethod />
+      <SelectPaymentMethod />
     </Container>
   );
 };
