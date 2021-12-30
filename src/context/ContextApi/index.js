@@ -1,9 +1,11 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 export const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [valor, setValor] = useState([0]);
+  const [amount, setAmount] = useState([0]);
 
   function handleAddNewProduct(
     quantityValue,
@@ -23,13 +25,23 @@ export const ProductProvider = ({ children }) => {
       photo: photo,
       price: totalResult,
     };
+    console.log('item,', product.price)
+    const car = product.price
+    setValor([...valor, car])
     setCart([...cart, product]);
   }
+
+  
+  useEffect(() => {
+    const valueTotal = valor.reduce((acc, acm) => acc += acm)
+    setAmount(valueTotal)
+  }, [valor])
 
   function handleDeleteItem(item) {
     const newListProduct = cart.filter((list) => list.id !== item.id);
     setCart(newListProduct);
   }
+
 
   return (
     <ProductContext.Provider
@@ -39,6 +51,7 @@ export const ProductProvider = ({ children }) => {
         setProducts,
         handleAddNewProduct,
         handleDeleteItem,
+        amount
       }}
     >
       {children}
