@@ -9,7 +9,7 @@ import America from "../../assets/image/paymentform/america.png";
 import Wf from "../../assets/image/paymentform/wf.png";
 import Pnc from "../../assets/image/paymentform/pnc.png";
 import Citi from "../../assets/image/paymentform/citi.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SelectPaymentMethod = () => {
   let navigate = useNavigate();
@@ -60,7 +60,11 @@ const SelectPaymentMethod = () => {
           </ListItem>
         </List>
 
-        <Btn type="submit" onClick={() => navigate(selectedPaymenth)}>
+        <Btn
+          type="submit"
+          disabled={!selectedPaymenth}
+          onClick={() => navigate(selectedPaymenth)}
+        >
           Continue
         </Btn>
       </form>
