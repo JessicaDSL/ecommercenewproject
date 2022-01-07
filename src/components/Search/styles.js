@@ -32,4 +32,13 @@ export const Container = styled.div`
     margin: 0 0rem 0 4rem;
     `}
   }
+  ul {
+    display: none;
+  }
 `;
+
+export const Form = styled.form`
+ul {
+  display: ${({state}) => state ? 'flex' : 'none'};
+}
+`
