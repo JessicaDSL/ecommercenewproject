@@ -7,10 +7,10 @@ import { formatCurrency } from "../../utils/utils";
 
 import { Header } from "./styles";
 
-const HeaderModal = ({ title }) => {
+const HeaderModal = () => {
   let navigate = useNavigate();
 
-  const { amount } = useContext(ProductContext);
+  const { amount, title } = useContext(ProductContext);
 
   return (
     <Header>
