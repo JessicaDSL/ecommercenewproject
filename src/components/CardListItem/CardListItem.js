@@ -16,7 +16,7 @@ const CardListItem = ({ item }) => {
           <img src={item.photo} alt={item.description} />
         </Image>
         <Description>
-          <h3>{item.description}</h3>
+          <h3>{item.name}</h3>
           <p>
             x{item.quantity}, {item.color}, Size {item.size}{" "}
           </p>
