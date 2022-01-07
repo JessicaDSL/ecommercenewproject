@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 
 import { termsOfAuthorize } from "./content";
 
+import { ProductContext } from "../../context/ContextApi";
 import Chase from "../../assets/image/Chase.png";
 import SecureInternetCertificate from "../SecureInternetCertificate";
 import { Background, Container, Form, Section, Button } from "./styles";
@@ -9,7 +10,12 @@ import { Link } from "react-router-dom";
 import HeaderModal from "../HeaderModal";
 
 const ModalBankSelection = () => {
-  const title = "Choose an account";
+
+  const [checked, setChecked] = useState(false)
+
+  const { title, setTitle } = useContext(ProductContext);
+  setTitle("Choose an account")
+
   return (
     <Background>
       <Container>
@@ -17,24 +23,23 @@ const ModalBankSelection = () => {
         <img src={Chase} alt="logo" />
         <Form>
           <p>
-            <input type="radio" name="Account" value="Checking Account" />
+            <input type="radio" name="Account" onClick={() => setChecked(true)}/>
             <label>Checking Account - 6576</label>
           </p>
           <p>
-            <input type="radio" name="Account" value="Savings Account" />
+            <input type="radio" name="Account" onClick={() => setChecked(true)}/>
             <label>Savings Account - 6213</label>
           </p>
         </Form>
         <Section>
           <h5>shoes.on Transaction Authorization</h5>
           <p>
-            Today, being 5/6/2019 09:55:37 AM GMT-03, by clicking "Continue", I
-            agree to the Terms of Use and authorize shoes.on {termsOfAuthorize}
+            {termsOfAuthorize}
           </p>
         </Section>
         <a href="#">Printable version</a>
         <Link to="/confirm">
-          <Button>Continue</Button>
+          <Button type="submit" disabled={!checked}>Continue</Button>
         </Link>
       </Container>
       <SecureInternetCertificate />
