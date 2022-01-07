@@ -63,4 +63,8 @@ export const Btn = styled.button`
   border: none;
   border-radius: 7px;
   cursor: pointer;
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
 `

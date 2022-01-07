@@ -67,4 +67,8 @@ export const Button = styled.button`
   height: 2.6rem;
   border-radius: 4px;
   margin: 1.5rem 0 0 0;
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
 `;

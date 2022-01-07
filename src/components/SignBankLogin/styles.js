@@ -65,6 +65,10 @@ export const Button = styled.button`
   font-weight: 600;
   letter-spacing: .5px;
   color: #eff6fb;
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
 `;
 
 export const Input = styled.input`

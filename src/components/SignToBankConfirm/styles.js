@@ -29,7 +29,7 @@ export const Container = styled.div`
     position: relative;
     left: 56%;
     margin: 12% 0 8% 0;
-    background: ${({state}) => (state ? 'none' : 'pink')};
+    background: green;
     border: 1px solid #d9ded8;
     color: #d9ded8;
     border-radius: 2px;
@@ -37,7 +37,11 @@ export const Container = styled.div`
     height: 2.5rem;
     font-weight: 600;
     letter-spacing: .2px;
-    cursor: ${({state}) => (state ? 'pointer' : 'not-allowed')};;
+    cursor: pointer;
+    &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
   }
 `;
 
