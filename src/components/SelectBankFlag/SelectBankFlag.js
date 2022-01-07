@@ -1,17 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { banks } from "./mock";
 import BankList from "../BankList";
 import SearchBank from "../SearchBank/SearchBank";
+import { ProductContext } from "../../context/ContextApi";
 
 import { Container } from "./styles";
 
 import SecureInternetCertificate from "../SecureInternetCertificate/SecureInternetCertificate";
 import HeaderModal from "../HeaderModal";
 
-const ModalBankSelection = ({ handleClick }) => {
-  const title = "Select your Bank";
+const SelectBankFlag = () => {
+  
+  const { title, setTitle } = useContext(ProductContext);
+  setTitle("Select your Bank")
 
   return (
     <Container>
@@ -26,4 +29,4 @@ const ModalBankSelection = ({ handleClick }) => {
   );
 };
 
-export default ModalBankSelection;
+export default SelectBankFlag;

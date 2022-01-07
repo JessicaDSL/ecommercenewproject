@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { Background, Container, List, ListItem, Label, Input } from "./styles";
-import SecureInternetCertificate from '../SecureInternetCertificate'
+import { ProductContext } from "../../context/ContextApi";
+import SecureInternetCertificate from "../SecureInternetCertificate";
 import { Link } from "react-router-dom";
 import HeaderModal from "../HeaderModal";
-//"Choose an account"
 
 const SignToBankConfirm = () => {
-  const title = "Sign into your bank";
-  const link = '/confirm'
+  const [state, setState] = useState(false);
+  const [active, setActive] = useState(false);
 
-  const [state, setState] = useState(false)
-  const [active, setActive] = useState(false)
-
-  console.log(state)
+  const { title, setTitle } = useContext(ProductContext);
+  setTitle("Sign into your bank");
 
   function handleCkeck(e) {
-    console.log('e', e.target.checked)
-    setState(e.target.checked)
+    setState(e.target.checked);
   }
 
   useEffect(() => {
-    setActive(true)
-    console.log('active', active)
-  }, [state, active])
-  
+    setActive(true);
+  }, [state, active]);
 
   return (
     <Background>
@@ -38,14 +33,16 @@ const SignToBankConfirm = () => {
           <ListItem>This is a secure connection to Chase</ListItem>
           <ListItem>Your bank login cannot be seen by shoes.on</ListItem>
         </List>
-        <form method="POST" >
-        <Label>
-          <Input type="checkbox" onChange={(e) => handleCkeck(e)}/>
-          <span>Do not show this message again</span>
-        </Label>
-        <Link to='/signin'>
-        <button type="subimit" disabled={!state} active={active}>Ok, got it!</button>
-        </Link>
+        <form method="POST">
+          <Label>
+            <Input type="checkbox" onChange={(e) => handleCkeck(e)} />
+            <span>Do not show this message again</span>
+          </Label>
+          <Link to="/signin">
+            <button type="subimit" disabled={!state} active={active}>
+              Ok, got it!
+            </button>
+          </Link>
         </form>
       </Container>
       <SecureInternetCertificate />
