@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { BsBank2 } from "react-icons/bs";
 import { MdOutlineAttachMoney } from "react-icons/md";
@@ -8,29 +8,25 @@ import { ProductContext } from "../../context/ContextApi";
 import { Container, Login, Background, List, ListItem, Button } from "./styles";
 import { Link } from "react-router-dom";
 
-
 const PaymentsInfo = ({ product = [] }) => {
-
-  const { amount } = useContext(ProductContext)
+  const { amount } = useContext(ProductContext);
 
   return (
     <Container>
       <Login>
-        <Link to='/'>
-        <button>
-          <IoArrowBack /> <span>Back</span>
-        </button>
+        <Link to="/">
+          <button>
+            <IoArrowBack /> <span>Back</span>
+          </button>
         </Link>
-        <Link to='/productcart'>
-        <img src={Photo} alt="Foto Perfil" />
+        <Link to="/cart/initial">
+          <img src={Photo} alt="Foto Perfil" />
         </Link>
       </Login>
       <h2>Review and confirmation</h2>
       <Background>
         <h3>Order Summary</h3>
-        <div>
-         
-        </div>
+        <div></div>
       </Background>
       <Background>
         <h3>Payment Method</h3>
@@ -51,7 +47,9 @@ const PaymentsInfo = ({ product = [] }) => {
           </ListItem>
         </List>
       </Background>
-      <Button>Place order</Button>
+      <Link to="/completedpurchase">
+        <Button>Place order</Button>
+      </Link>
     </Container>
   );
 };
