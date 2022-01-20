@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { BsBank2 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineAttachMoney } from "react-icons/md";
@@ -17,8 +17,26 @@ import {
 } from "./styles";
 
 const PaymentConfirm = () => {
-  const { amount, cart } = useContext(ProductContext);
+  const { amount, cart, url } = useContext(ProductContext);
   const navigate = useNavigate();
+
+  const [paymentMethod, setPaymentMethod] = useState("");
+
+  useEffect(() => {
+    function handleUrl() {
+      if (url === "/selectbank") {
+        setPaymentMethod("Online Banking");
+      } else if (url === "/cardpayment") {
+        setPaymentMethod("Payment by Credit Card");
+      } else if (url === "/applepayment") {
+        setPaymentMethod("Apple Pay");
+      } else {
+        setPaymentMethod("No Method Selected");
+      }
+    }
+
+    handleUrl();
+  }, [url]);
 
   return (
     <Container>
@@ -38,7 +56,7 @@ const PaymentConfirm = () => {
         <h3>Payment Method</h3>
         <PaymentSelected>
           <BsBank2 />
-          <h4>Online Banking</h4>
+          <h4>{paymentMethod}</h4>
         </PaymentSelected>
         <TotalValue>
           <div>

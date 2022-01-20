@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -21,11 +21,18 @@ import {
   CardPayment,
   ApplePayment,
 } from "./styles";
+import { ProductContext } from "../../context/ContextApi";
 
 const SelectPaymentMethod = () => {
   let navigate = useNavigate();
 
   const [selectedPaymenth, setSelectedPaymenth] = useState(false);
+
+  const { getUrl } = useContext(ProductContext);
+
+  useEffect(() => {
+    getUrl(selectedPaymenth);
+  }, [selectedPaymenth, getUrl]);
 
   return (
     <Form>

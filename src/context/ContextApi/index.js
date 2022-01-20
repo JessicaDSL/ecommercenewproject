@@ -13,6 +13,7 @@ export const ProductProvider = ({ children }) => {
   const [title, setTitle] = useState();
   const [cartItem, setCartItem] = useState();
   const [bankFlag, setBankFlag] = useState([]);
+  const [url, setUrl] = useState();
 
   function handleAddNewProduct(
     quantityValue,
@@ -67,6 +68,10 @@ export const ProductProvider = ({ children }) => {
     setCart([]);
   }
 
+  function getUrl(urls) {
+    setUrl(urls);
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -84,6 +89,8 @@ export const ProductProvider = ({ children }) => {
         getBankFlag,
         cartItem,
         clearCart,
+        getUrl,
+        url,
       }}
     >
       {children}
