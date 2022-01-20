@@ -4,8 +4,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 5rem 0 2rem 0;
   svg {
-    color: #597056;
+    color: #fe7a9b;
     background: none;
     border: 1px solid #888888;
     border-radius: 50%;
@@ -19,6 +20,6 @@ export const Container = styled.div`
     color: #888888;
   }
   a {
-    color: #7b8f66;
+    color: #fe7a9b;
   }
 `;
