@@ -1,80 +1,44 @@
 import React, { useState, useEffect, useContext } from "react";
-
-import Stack from "@mui/material/Stack";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-
+import { AiOutlineHeart } from "react-icons/ai";
 import { formatCurrency } from "../../utils/utils";
-import { Container, Info, Btn } from "./styles";
 import { ProductContext } from "../../context/ContextApi";
 
-const ListItemCard = ({ item }) => {
-  const { handleAddNewProduct, cartItem } = useContext(ProductContext);
+import { ListItem, Info, Btn, Select, Content } from "./styles";
 
-  const [sizeOfProduct, setSizeOfProduct] = useState([]);
-  const [quantityOfProduct, setQuantityOfProduct] = useState([]);
+const ListItemCard = ({ item }) => {
+  const { handleAddNewProduct } = useContext(ProductContext);
+
   const [quantityValue, setQuantityValue] = useState(1);
   const [sizeProduct, setSizeProduct] = useState(37);
   const [totalResult, setTotalResult] = useState();
-  const [priceOfProduct, setPriceOfProduct] = useState(37);
-  const [photoOfProduct, setPhotoOfResult] = useState();
-  const [nameOfProduct, setNameOfResult] = useState();
-  const [colorOfProduct, setColorOfResult] = useState();
-  const [idOfProduct, setIdOfResult] = useState();
-  const [bigPhotoProduct, setBigPhotoProduct] = useState();
-  const [descriptionOfProduct, setDescriptionOfResult] = useState();
 
-  
+  const sizeOfProduct = item.size;
+  const quantityOfProduct = item.quantity;
 
   useEffect(() => {
-    function HandlePrice() {
-      if (item !== undefined) {
-        setSizeOfProduct(item.size);
-        setPriceOfProduct(item.price);
-        setColorOfResult(item.color)
-        setQuantityOfProduct(item.quantity);
-        setIdOfResult(item.id)
-        setDescriptionOfResult(item.description)
-        setBigPhotoProduct(item.maxresURL)
-        setPhotoOfResult(item.thumbnailURL);
-        setNameOfResult(item.description);
-      } else if (cartItem !== undefined) {
-        setPriceOfProduct(cartItem?.price);
-        setColorOfResult(cartItem?.color)
-        setQuantityOfProduct(cartItem?.quantity);
-        setIdOfResult(cartItem?.id);
-        setSizeOfProduct(cartItem?.size);
-        setDescriptionOfResult(cartItem?.description)
-        setBigPhotoProduct(cartItem?.maxresURL)
-        setPhotoOfResult(cartItem?.thumbnailURL);
-        setNameOfResult(cartItem?.description);
-      }
-    }
-    HandlePrice();
-  }, [item, cartItem]);
-
-  useEffect(() => {
-    const totalValue = quantityValue * priceOfProduct;
+    const totalValue = quantityValue * item.price;
     setTotalResult(totalValue);
-  }, [quantityValue, priceOfProduct, totalResult]);
+  }, [quantityValue, totalResult, item.price]);
 
-  console.log(nameOfProduct)
   return (
-    <Container>
-      <img src={photoOfProduct} alt={`Foto do produto ${nameOfProduct}`} />
-      <h4>{nameOfProduct}</h4>
+    <ListItem>
+      <img
+        src={item.thumbnailURL}
+        alt={`Foto do produto ${item.description}`}
+      />
+      <h4>{item.description}</h4>
       <Info>
-        Size
-        <select
+        <h3>Size</h3>
+        <Select
           onChange={(e) => setSizeProduct(e.target.value)}
           value={sizeProduct}
         >
           {sizeOfProduct.map((size) => (
             <option key={size}>{size}</option>
           ))}
-        </select>
-        Quantity
-        <select
+        </Select>
+        <h3>Quantity</h3>
+        <Select
           onChange={(e) => setQuantityValue(e.target.value)}
           value={quantityValue}
         >
@@ -83,7 +47,7 @@ const ListItemCard = ({ item }) => {
               {number}
             </option>
           ))}
-        </select>
+        </Select>
       </Info>
 
       <h2>${formatCurrency(totalResult)}</h2>
@@ -92,46 +56,22 @@ const ListItemCard = ({ item }) => {
         onClick={() =>
           handleAddNewProduct(
             quantityValue,
-            colorOfProduct,
+            item.color,
             sizeProduct,
-            idOfProduct,
-            nameOfProduct,
-            bigPhotoProduct,
-            totalResult,
-            
+            item.id,
+            item.description,
+            item.maxresURL,
+            totalResult
           )
         }
       >
         Add to cart
       </Btn>
-    </Container>
+      <Content>
+        <hr /> <AiOutlineHeart /> <hr />
+      </Content>
+    </ListItem>
   );
 };
 
 export default ListItemCard;
-
-/*
-<div>
-      <Stack spacing={2} sx={{ width: "100%" }}>
-<Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}>
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{ width: "100%" }}
-          >
-            O item foi adicionado ao carrinho!
-          </Alert>
-        </Snackbar>
-      </Stack>
-       </div>*/
-/*const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });*/
-
-/*item.color,
-            item.id,
-            item.description,
-            item.maxresURL,*/
