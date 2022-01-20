@@ -1,3 +1,3 @@
-import CardPayment from './CardPayment'
+import CardPayment from "./CardPayment";
 
 export default CardPayment;
