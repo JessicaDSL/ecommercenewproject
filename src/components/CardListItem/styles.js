@@ -1,25 +1,32 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Background = styled.div`
-  background: rgba(247, 247, 247, 255);
+  width: 94%;
+  background: #1b1e32;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 0 0 1.1rem 0;
+  padding: 2%;
+  margin: 2% 0;
+  ${media.between("medium", "large")`
+  width: 45%;
+  margin: 2%;
+  `}
+  ${media.between("large", "huge")`
+  width: 30%;
+  margin: 1%;
+  `}
+  ${media.greaterThan("huge")`
+  width: 30%;
+  margin: 1%;
+  `}
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-content: center;
-  h3 {
-    font-weight: 500;
-  }
-  p {
-    font-size: small;
-    color: rgba(0, 0, 0, 0.2);
-    font-weight: 600;
-  }
   span {
     margin: 1rem 0;
     position: absolute;
@@ -27,10 +34,27 @@ export const Container = styled.div`
     color: rgba(0, 0, 0, 0.3);
     font-size: smaller;
   }
+  button {
+    background: none;
+    border: none;
+    display: flex;
+    color: #dd3c66;
+    margin: 3% 0 0 0;
+  }
+  ${media.greaterThan("huge")`
+  span {
+    margin: 1rem 0;
+    position: absolute;
+    left: 90%;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: normal;
+    
+  }
+  `}
 `;
 
 export const Image = styled.div`
-  margin: 5% 0 0 0;
+  margin: 3% 0 0 0;
   border-radius: 7px;
   width: 7rem;
   height: 8rem;
@@ -38,22 +62,59 @@ export const Image = styled.div`
   overflow: hidden;
   img {
     position: relative;
-    bottom: 30%;
-    right: 60%;
-    width: 15rem;
-    height: 15rem;
+    bottom: 40%;
+    right: 70%;
+    width: 16rem;
+    height: 16rem;
     text-align: center;
     vertical-align: middle;
   }
+  ${media.greaterThan("huge")`
+  width: 9rem;
+  height: 11rem;
+  `}
 `;
 
 export const Description = styled.div`
-  margin: 0.7rem 0 0 1rem;
+  margin: 0;
   width: 55%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
   h5 {
     font-weight: normal;
-    margin: 1rem 0 0 0;
   }
+  h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+  p {
+    font-size: x-small;
+    color: #3e3d56;
+    font-weight: 600;
+  }
+  ${media.between("small", "medium")`
+    h5 {
+    font-size: medium;
+  }
+  h3 {
+    font-size: large;
+  }
+  p {
+    font-size: medium;
+  }
+  `}
+  ${media.greaterThan("huge")`
+    h5 {
+    font-size: large;
+  }
+  h3 {
+    font-size: x-large;
+  }
+  p {
+    font-size: medium;
+  }
+  `}
 `;
 
 export const Price = styled.div`
@@ -69,7 +130,7 @@ export const Price = styled.div`
   span {
     font-size: 0.7rem;
     position: relative;
-    color: rgba(0, 0, 0, 0.3);
+    color: #3e3d56;
   }
   div {
     display: flex;
@@ -88,4 +149,15 @@ export const Price = styled.div`
     align-items: center;
     font-size: 2rem;
   }
+  ${media.greaterThan("huge")`
+  h4 {
+    font-size: x-large;
+  }
+  span {
+    font-size: medium;
+  }
+  strong {
+    font-size: xx-large;
+  }
+  `}
 `;
