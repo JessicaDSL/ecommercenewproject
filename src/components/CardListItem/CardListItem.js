@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import { FaMinusCircle } from "react-icons/fa";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 import { ProductContext } from "../../context/ContextApi";
 
@@ -27,7 +27,7 @@ const CardListItem = ({ item }) => {
           <p>Address: Redwood City, 2000.</p>
         </Description>
         <button onClick={() => handleDeleteItem(item)}>
-          <FaMinusCircle />
+          <RemoveCircleIcon />
         </button>
       </Container>
       <Price>
