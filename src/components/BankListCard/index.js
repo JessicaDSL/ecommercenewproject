@@ -1,3 +1,3 @@
-import BankListCard from './BankListCard'
+import BankListCard from "./BankListCard";
 
 export default BankListCard;

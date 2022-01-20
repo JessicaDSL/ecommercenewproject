@@ -1,19 +1,20 @@
-import React from 'react'
-import { IoIosArrowForward } from "react-icons/io";
+import React, { useContext } from "react";
+import { ProductContext } from "../../context/ContextApi";
 
-import { Container } from './styles'
+import { Button } from "./styles";
 
-const BankListCard = ({name, image, url}) => {
+const BankListCard = ({ name, image, url }) => {
+  const { getBankFlag } = useContext(ProductContext);
+
   return (
-    <Container>
-      <img src={image} alt={`logo do banco ${name}`} />
+    <Button onClick={() => getBankFlag(name, image)}>
+      <img src={image} alt={`bank logo ${name}`} />
       <div>
-      <h4>{name}</h4>
-      <a href={url}>{url}</a>
+        <h4>{name}</h4>
+        <a href={url}>{url}</a>
       </div>
-      
-    </Container>
-  )
-}
+    </Button>
+  );
+};
 
-export default BankListCard
+export default BankListCard;

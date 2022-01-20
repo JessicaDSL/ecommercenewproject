@@ -1,31 +1,48 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import media from "styled-media-query";
 
-export const Container = styled.div`
+export const Button = styled.button`
   display: flex;
-  justify-content: start;
+  background: none;
+  border: none;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: .5rem 0;
   img {
-    width: 1.6rem;
+    width: 1.8rem;
     height: 1.6rem;
     border-radius: 7px;
     margin: 0 1rem 0 0;
   }
-  a{
-    color: rgba(207,207,207,255);
-    font-size: .6rem;
+  a {
+    color: #3e3d56;
+    font-size: 0.6rem;
     position: relative;
-    bottom:-10%;
+    bottom: -10%;
   }
   h4 {
     font-size: smaller;
     font-weight: 500;
-    color: rgba(128,128,128,255);
- }
+    color: #c1c1c6;
+  }
   div {
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    align-items: flex-start;
   }
+  ${media.greaterThan("large")`
+  img {
+    width: 3.5rem;
+    height: 3rem;
+    margin: 0 2rem 0 0;
+  }
+  a{
+    font-size: large;
+  }
+  h4 {
+    font-size: x-large;
+    font-weight: 600;
+    color: #c1c1c6;
+ }
+  `}
 `;
