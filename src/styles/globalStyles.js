@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
- 
+import { createGlobalStyle } from "styled-components";
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -18,11 +18,13 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: #141628;
+    color: #fff;
   }
 
   button {
     cursor: pointer;
   }
 `;
- 
+
 export default GlobalStyle;
