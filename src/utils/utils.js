@@ -1,3 +1,4 @@
 export const formatCurrency = (totalResult) => {
-  return `${totalResult}.00`
-}
+  const rounded = Math.ceil(totalResult);
+  return `${rounded}.00`;
+};
