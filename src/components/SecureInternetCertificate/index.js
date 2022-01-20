@@ -1,3 +1,3 @@
-import SecureInternetCertificate from './SecureInternetCertificate'
+import SecureInternetCertificate from "./SecureInternetCertificate";
 
 export default SecureInternetCertificate;
