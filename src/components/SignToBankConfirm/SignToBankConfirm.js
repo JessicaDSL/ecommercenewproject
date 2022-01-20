@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+
+import SecureInternetCertificate from "../SecureInternetCertificate";
+import HeaderModal from "../HeaderModal";
+import { ProductContext } from "../../context/ContextApi";
 
 import { Background, Container, List, ListItem, Label, Input } from "./styles";
-import { ProductContext } from "../../context/ContextApi";
-import SecureInternetCertificate from "../SecureInternetCertificate";
-import { Link } from "react-router-dom";
-import HeaderModal from "../HeaderModal";
 
 const SignToBankConfirm = () => {
   const [state, setState] = useState(false);
@@ -39,7 +40,7 @@ const SignToBankConfirm = () => {
             <span>Do not show this message again</span>
           </Label>
           <Link to="/signin">
-            <button type="subimit" disabled={!state} active={active}>
+            <button type="button" active={active}>
               Ok, got it!
             </button>
           </Link>

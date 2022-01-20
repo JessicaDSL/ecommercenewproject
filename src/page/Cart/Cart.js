@@ -1,40 +1,32 @@
 import React, { useContext } from "react";
-import { IoArrowBack } from "react-icons/io5";
-import { Link } from "react-router-dom";
 
-import Photo from "../../assets/image/Jessy.jpg";
-
-import ProgressBar from "../../components/ProgressBar";
-import { ProductContext } from "../../context/ContextApi";
 import SelectPaymentMethod from "../../components/SelectPaymentMethod";
 import CardListItem from "../../components/CardListItem";
+import Footer from "../../components/Footer";
+import CartHeader from "../../components/CartHeader/CartHeader";
+import { ProductContext } from "../../context/ContextApi";
 
-import { Container, Header, ProductInfo } from "./styles";
+import { Container, CartItens, CartListProduct } from "./styles";
 
 const Cart = () => {
   const { cart } = useContext(ProductContext);
-
   return (
     <Container>
-      <Header>
-        <Link to="/">
-          <button>
-            <IoArrowBack /> <span>Back</span>
-          </button>
-        </Link>
-        <h1>Review and Confirmation</h1>
-        <img src={Photo} alt="Foto Perfil" />
-      </Header>
-
+      <CartHeader />
       <h2>Checkout</h2>
-      <ProgressBar />
-      <ProductInfo>
-        {cart.map((item) => (
-          <CardListItem key={item.id} item={item} />
-        ))}
-      </ProductInfo>
-      <h3>Payment method</h3>
+      <CartListProduct>
+        {cart.length > 0 ? (
+          cart.map((item) => <CardListItem key={item.id} item={item} />)
+        ) : (
+          <CartItens>
+            <h1>You don't have items in your shopping cart yet! :(</h1>
+          </CartItens>
+        )}
+      </CartListProduct>
+
+      <h6>Payment method</h6>
       <SelectPaymentMethod />
+      <Footer />
     </Container>
   );
 };

@@ -2,17 +2,16 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import api from "../../services/api";
-import Photo from "../../assets/image/Jessy.jpg";
-
-import { ProductContext } from "../../context/ContextApi";
-import Search from "../../components/Search/Search";
+import Photo from "../../assets/image/Jessy.jpeg";
+import Footer from "../../components/Footer/Footer";
+import SearchProduct from "../../components/SearchProduct";
 import HomeProductList from "../../components/HomeProductList";
+import { ProductContext } from "../../context/ContextApi";
 
-import { Container, Header, ImageLogin } from "./styles";
+import { Container, Header } from "./styles";
 
 const Home = () => {
   const { setProducts } = useContext(ProductContext);
-
   const fetchProduct = () => {
     return api
       .get("sneakers/index.json")
@@ -49,15 +48,14 @@ const Home = () => {
   return (
     <Container>
       <Header>
-        <ImageLogin>
-          <h1>Sneakers</h1>
-          <Link to="/cart/initial">
-            <img src={Photo} alt="Foto Perfil" />
-          </Link>
-        </ImageLogin>
+        <h1>Sneakers</h1>
+        <Link to="/cart/initial">
+          <img src={Photo} alt="Profile" />
+        </Link>
       </Header>
-      <Search />
+      <SearchProduct />
       <HomeProductList />
+      <Footer />
     </Container>
   );
 };

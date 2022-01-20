@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 
 import { banks } from "./mock";
 import BankList from "../BankList";
-import SearchBank from "../SearchBank/SearchBank";
 import { ProductContext } from "../../context/ContextApi";
 
 import { Container } from "./styles";
@@ -12,14 +11,12 @@ import SecureInternetCertificate from "../SecureInternetCertificate/SecureIntern
 import HeaderModal from "../HeaderModal";
 
 const SelectBankFlag = () => {
-  
   const { title, setTitle } = useContext(ProductContext);
-  setTitle("Select your Bank")
+  setTitle("Select your Bank");
 
   return (
     <Container>
       <HeaderModal title={title} />
-      <SearchBank />
       <h5>MOST POPULAR</h5>
       <BankList banks={banks} />
       <h5>ALL BANKS</h5>
