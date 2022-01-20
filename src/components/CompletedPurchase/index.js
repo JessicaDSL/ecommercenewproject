@@ -1,3 +1,3 @@
-import CompletedPurchase from './CompletedPurchase'
+import CompletedPurchase from "./CompletedPurchase";
 
 export default CompletedPurchase;
