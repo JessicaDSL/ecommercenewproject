@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 export const ProductContext = createContext({});
 
@@ -9,9 +11,8 @@ export const ProductProvider = ({ children }) => {
   const [amount, setAmount] = useState([0]);
   const [open, setOpen] = useState();
   const [title, setTitle] = useState();
-  const [cartItem, setCartItem] = useState()
-
- 
+  const [cartItem, setCartItem] = useState();
+  const [bankFlag, setBankFlag] = useState([]);
 
   function handleAddNewProduct(
     quantityValue,
@@ -31,31 +32,40 @@ export const ProductProvider = ({ children }) => {
       photo: bigPhotoProduct,
       price: totalResult,
     };
-    const car = product.price
-    console.log('name', nameOfProduct)
-    setValor([...valor, car])
+    toast.success("Item adicionado com sucesso", {
+      theme: "dark",
+    });
+    const car = product.price;
+    setValor([...valor, car]);
     setCart([...cart, product]);
     setOpen(true);
   }
 
-  
-  
   useEffect(() => {
-    const valueTotal = valor.reduce((acc, acm) => acc += acm)
-    setAmount(valueTotal)
-  }, [valor])
+    const valueTotal = valor.reduce((acc, acm) => (acc += acm));
+    setAmount(valueTotal);
+  }, [valor]);
+
+  function getBankFlag(name, image) {
+    const data = {
+      name: name,
+      image: image,
+    };
+    setBankFlag(data);
+  }
 
   function handleDeleteItem(item) {
     const newListProduct = cart.filter((list) => list.id !== item.id);
     setCart(newListProduct);
   }
 
-  function handleSearch(names) {
-    setCartItem(names)
+  function handleSearch(product) {
+    setCartItem(product);
   }
 
-  
-
+  function clearCart() {
+    setCart([]);
+  }
 
   return (
     <ProductContext.Provider
@@ -68,8 +78,12 @@ export const ProductProvider = ({ children }) => {
         amount,
         open,
         handleSearch,
-        title, setTitle,
-        cartItem, setCartItem
+        title,
+        setTitle,
+        bankFlag,
+        getBankFlag,
+        cartItem,
+        clearCart,
       }}
     >
       {children}
