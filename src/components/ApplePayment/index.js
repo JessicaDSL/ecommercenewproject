@@ -1,3 +1,3 @@
-import ApplePayment from './ApplePayment'
+import ApplePayment from "./ApplePayment";
 
 export default ApplePayment;
