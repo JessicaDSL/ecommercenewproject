@@ -1,3 +1,3 @@
-import SelectBankFlag from './SelectBankFlag'
+import SelectBankFlag from "./SelectBankFlag";
 
 export default SelectBankFlag;

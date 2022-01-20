@@ -1,3 +1,3 @@
-import SignToBankConfirm from './SignToBankConfirm'
+import SignToBankConfirm from "./SignToBankConfirm";
 
 export default SignToBankConfirm;

@@ -1,3 +1,3 @@
-import SignBankLogin from './SignBankLogin'
+import SignBankLogin from "./SignBankLogin";
 
 export default SignBankLogin;
