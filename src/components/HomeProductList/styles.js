@@ -1,26 +1,26 @@
 import styled from "styled-components";
 import media from "styled-media-query";
 
-export const Container = styled.div`
+export const List = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const List = styled.div`
-  ${media.greaterThan("large")`
-    display: flex;
-    justify-content: center;
-    width: 86%;
-    flex-wrap: wrap;
+  justify-content: center;
+  ${media.between("450px", "medium")`
+  width: 80%;
   `}
-`;
-
-export const ListItem = styled.div`
+  ${media.between("medium", "large")`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 94%;
+  `}
   ${media.greaterThan("large")`
     display: flex;
-    margin: 2.1rem;
-    width: 25%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 94%;
+    margin: 2.2rem 0;
   `}
 `;
