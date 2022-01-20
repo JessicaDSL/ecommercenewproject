@@ -1,2 +1,3 @@
-import BankList from './BankList'
+import BankList from "./BankList";
+
 export default BankList;
