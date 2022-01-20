@@ -9,9 +9,7 @@ import { Header } from "./styles";
 
 const HeaderModal = () => {
   let navigate = useNavigate();
-
   const { amount, title } = useContext(ProductContext);
-
   return (
     <Header>
       <button
@@ -21,7 +19,6 @@ const HeaderModal = () => {
       >
         <IoIosArrowBack />
       </button>
-
       <div>
         <h2>{title}</h2>
         <span>Amount: ${formatCurrency(amount)}</span>

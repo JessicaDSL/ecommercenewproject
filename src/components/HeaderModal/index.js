@@ -1,3 +1,3 @@
-import HeaderModal from './HeaderModal'
+import HeaderModal from "./HeaderModal";
 
 export default HeaderModal;
