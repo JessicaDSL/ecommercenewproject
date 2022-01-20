@@ -1,74 +1,97 @@
 import React, { useState } from "react";
+import AppleIcon from "@mui/icons-material/Apple";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-import { Container, List, ListItem, PaymentOnline, Btn } from "./styles";
 import MasterCard from "../../assets/image/paymentform/mastercard.png";
 import Visa from "../../assets/image/paymentform/visa.png";
-import Apple from "../../assets/image/paymentform/applepay.png";
 import Chase from "../../assets/image/paymentform/chaaaaase.png";
 import America from "../../assets/image/paymentform/america.png";
 import Wf from "../../assets/image/paymentform/wf.png";
 import Pnc from "../../assets/image/paymentform/pnc.png";
 import Citi from "../../assets/image/paymentform/citi.png";
-import { useNavigate } from "react-router-dom";
+
+import {
+  Form,
+  List,
+  ListItem,
+  PaymentOnline,
+  ImageFlags,
+  Btn,
+  CardPayment,
+  ApplePayment,
+} from "./styles";
 
 const SelectPaymentMethod = () => {
   let navigate = useNavigate();
 
-  const [selectedPaymenth, setSelectedPaymenth] = useState(0);
+  const [selectedPaymenth, setSelectedPaymenth] = useState(false);
 
   return (
-    <Container>
-      <form>
-        <List>
-          <ListItem>
-            <button
-              type="button"
-              onClick={() => setSelectedPaymenth("/selectbank")}
-            >
-              <PaymentOnline>
-                Online Banking <strong>SAVE $10</strong>
-              </PaymentOnline>
-              <span>
-                <img src={Chase} alt="logo do Chase" />
-                <img src={America} alt="logo do America" />
-                <img src={Wf} alt="logo do Wf" />
-                <img src={Pnc} alt="logo do Pnc" />
-                <img src={Citi} alt="logo do Citi" />
-                <strong>& more</strong>
-              </span>
-            </button>
-          </ListItem>
-          <ListItem>
-            <button
-              type="button"
-              onClick={() => setSelectedPaymenth("/cardpayment")}
-            >
-              Card Payment
+    <Form>
+      <List>
+        <ListItem>
+          <button
+            type="button"
+            onClick={() => setSelectedPaymenth("/selectbank")}
+          >
+            <PaymentOnline>
+              <p>Online Banking</p> <strong>SAVE $10</strong>
+            </PaymentOnline>
+            <ImageFlags>
+              <img src={Chase} alt="Chase's logo" />
+              <img src={America} alt="America's logo" />
+              <img src={Wf} alt="Wf's logo" />
+              <img src={Pnc} alt="Pnc's logo" />
+              <img src={Citi} alt="Citi's logo" />
+              <span>& more</span>
+            </ImageFlags>
+          </button>
+        </ListItem>
+        <ListItem>
+          <button
+            type="button"
+            onClick={() => setSelectedPaymenth("/cardpayment")}
+          >
+            <CardPayment>
               <div>
-                <img src={MasterCard} alt="logo do MasterCard" />
-                <img src={Visa} alt="logo do Visa" />
+                <p>Card Payment</p>
               </div>
-            </button>
-          </ListItem>
-          <ListItem>
+              <div>
+                <img src={MasterCard} alt="MasterCard's logo" />
+                <img src={Visa} alt="Visa's logo" />
+              </div>
+            </CardPayment>
+          </button>
+        </ListItem>
+        <ListItem>
+          <ApplePayment>
             <button
               type="button"
               onClick={() => setSelectedPaymenth("/applepayment")}
             >
-              Apple Pay <img src={Apple} alt="logo do Apple" />
+              <div>Apple Pay</div>{" "}
+              <div>
+                <AppleIcon /> <span>Pay</span>
+              </div>
             </button>
-          </ListItem>
-        </List>
-
-        <Btn
-          type="submit"
-          disabled={!selectedPaymenth}
-          onClick={() => navigate(selectedPaymenth)}
-        >
-          Continue
-        </Btn>
-      </form>
-    </Container>
+          </ApplePayment>
+        </ListItem>
+      </List>
+      <Btn
+        type="button"
+        selectedPaymenth={!selectedPaymenth}
+        onClick={() =>
+          !selectedPaymenth
+            ? toast.error("Select one of the payment options!", {
+                theme: "dark",
+              })
+            : navigate(selectedPaymenth)
+        }
+      >
+        Continue
+      </Btn>
+    </Form>
   );
 };
 
