@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Background = styled.div`
   width: 100%;
@@ -19,11 +20,6 @@ export const Container = styled.div`
     width: 8.5rem;
     margin: 6% 0 0 0;
   }
-  a {
-    color: #a2a2a2;
-    text-decoration: underline;
-    font-size: 0.7rem;
-  }
 `;
 
 export const Form = styled.form`
@@ -40,35 +36,66 @@ export const Form = styled.form`
     font-weight: 500;
     font-size: small;
   }
+  ${media.greaterThan("large")`
+    width: 60%;
+    label {
+    margin: 0 0 0 1rem;
+    font-size: x-large;
+  }
+  `}
 `;
 
 export const Section = styled.div`
-  background: #f4f4f4;
-  max-height: 100px;
-  width: 90%;
+  background: #1b1e32;
+  max-height: 150px;
+  width: 100%;
   border-radius: 2px;
   overflow-y: scroll;
   color: #9d9d9d;
   padding: 0.8rem;
-  margin: 0.6rem 0 0.5rem 0;
+  margin: 1.2rem 0;
   p {
     font-size: 0.7rem;
     margin: 0.6rem 0;
   }
+  ${media.greaterThan("large")`
+  max-height: 300px;
+  p {
+    font-size: large;
+    margin: 0.6rem 0;
+  }
+  `}
 `;
 
 export const Button = styled.button`
-  background: #0078cd;
+  background: ${({ checked }) => (checked ? "#fe4370" : "gray")};
   color: #f8fbfd;
   border: none;
   font-weight: 600;
   letter-spacing: 0.5px;
-  width: 90%;
+  width: 100%;
   height: 2.6rem;
   border-radius: 4px;
-  margin: 1.5rem 0 0 0;
-  &:disabled {
-    background: gray;
-    cursor: not-allowed;
+  cursor: ${({ checked }) => (checked ? "pointer" : "not-allowed")}
+  margin: 1.5rem 0 4rem 0;
+  ${media.greaterThan("large")`
+  height: xx-large;
+  height: 3rem;
+  `}
+`;
+
+export const BankLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin: 4rem 0 2rem 0;
+  img {
+    width: 3rem;
+    margin: 0 1rem 0 0;
+  }
+  h2 {
+    color: #e6e7e8;
+    font-size: x-large;
   }
 `;
