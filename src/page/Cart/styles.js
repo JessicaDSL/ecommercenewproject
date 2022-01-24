@@ -11,37 +11,46 @@ export const Container = styled.div`
     width: 94%;
     font-weight: 500;
     margin: 0.8rem 0 1.8rem 0;
+    color: #fbfbfb;
   }
   h6 {
     width: 94%;
     font-weight: 500;
     margin: 1.6rem 0;
+    color: #fbfbfb;
     font-size: 1rem;
   }
+  header {
+    width: 100%;
+  }
 
-  ${media.lessThan("medium")`
+  ${media.between("medium", "large")`
     h2 {
-      display: none;
+      width: 55%;
+      margin: 2rem 0 0 0;
     }
     h6 {
-      width: 94%;
+      width: 55%;
       font-weight: 500;
-      margin: 1.6rem 0;
-      font-size: 1rem;
+      margin: 2rem 0;
+      font-size: large;
     }
     `}
 
-  ${media.greaterThan("huge")`
+  ${media.greaterThan("large")`
     h2 {
-      display: none;
+      width: 49%;
+      margin: 4rem 0 0 0;
     }
     h6 {
-      width: 94%;
+      width: 50%;
       font-weight: 500;
-      margin: 2rem 0 4rem 0;
-      font-size: large;
+      margin: 2rem 0 5rem 0;
+      font-size: x-large;
     }
-    
+    header {
+    width: 100%;
+  }
     `}
 `;
 
@@ -51,24 +60,26 @@ export const CartListProduct = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${media.greaterThan("medium")`
-  flex-direction: row;
-  flex-wrap: wrap;
-  `}
   ${media.greaterThan("huge")`
-  margin: 4rem 0;
+  width: 50%;
+  flex-direction: row;
+  flex-wrap:wrap;
   justify-content: flex-start;
   align-items: center;
+  margin: 2rem 0;
   `}
 `;
 
 export const CartItens = styled.div`
-  width: 90%;
+  width: 80%;
   margin: 2rem 0;
-  ${media.between("medium", "huge")`
-    margin: 4rem 0;
-  `}
-  ${media.greaterThan("huge")`
-  margin: 5rem 0;
+  color: #fecad7;
+
+  ${media.greaterThan("medium")`
+  margin: 2.5rem 0;
+  width: 45%;
+  h1 {
+    width: 100%;
+  }
   `}
 `;
