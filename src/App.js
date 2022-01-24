@@ -18,7 +18,7 @@ import CompletedPurchase from "./components/CompletedPurchase/CompletedPurchase"
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <GlobalStyle />
       <ToastContainer autoClose={3000} />
       <Routes>
