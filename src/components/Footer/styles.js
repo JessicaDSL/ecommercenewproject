@@ -13,4 +13,8 @@ export const Container = styled.div`
     margin: 0 0.5rem;
     font-size: xx-small;
   }
+  a {
+    color: #fd4370;
+    margin: 0 0 0 0.3rem;
+  }
 `;
