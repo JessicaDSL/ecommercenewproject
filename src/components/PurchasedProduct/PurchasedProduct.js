@@ -26,9 +26,11 @@ const PurchasedProduct = ({ item }) => {
             </p>
           </div>
         </Description>
-        <button onClick={() => handleDeleteItem(item)}>
-          <RemoveCircleIcon />
-        </button>
+        <div>
+          <button onClick={() => handleDeleteItem(item)}>
+            <RemoveCircleIcon />
+          </button>
+        </div>
       </Container>
     </Background>
   );
