@@ -1,17 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
 
 import api from "../../services/api";
-import Photo from "../../assets/image/Jessy.jpeg";
 import Footer from "../../components/Footer/Footer";
 import SearchProduct from "../../components/SearchProduct";
 import HomeProductList from "../../components/HomeProductList";
 import { ProductContext } from "../../context/ContextApi";
 
-import { Container, Header } from "./styles";
+import { Container, Header, CartIcon } from "./styles";
 
 const Home = () => {
-  const { setProducts } = useContext(ProductContext);
+  const { setProducts, cart } = useContext(ProductContext);
   const fetchProduct = () => {
     return api
       .get("sneakers/index.json")
@@ -49,8 +50,12 @@ const Home = () => {
     <Container>
       <Header>
         <h1>Sneakers</h1>
+        <h2>GoJessyStore</h2>
         <Link to="/cart/initial">
-          <img src={Photo} alt="Profile" />
+          <CartIcon>
+            <span>{cart.length}</span>
+            {cart.length <= 0 ? <MdOutlineShoppingCart /> : <MdShoppingCart />}
+          </CartIcon>
         </Link>
       </Header>
       <SearchProduct />
