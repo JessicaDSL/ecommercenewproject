@@ -7,6 +7,7 @@ export const List = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0.4rem 0;
   ${media.between("450px", "medium")`
   width: 80%;
   `}
@@ -14,7 +15,7 @@ export const List = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 94%;
+    width: 80%;
   `}
   ${media.greaterThan("large")`
     display: flex;
