@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
@@ -25,10 +24,4 @@ export const Container = styled.div`
       }
     }
   }
-  ${media.greaterThan("large")`
-  width: 66%;
-  svg {
-        font-size: x-large;
-      }
-  `}
 `;

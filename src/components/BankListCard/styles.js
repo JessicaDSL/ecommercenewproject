@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
 export const Button = styled.button`
   display: flex;
@@ -30,19 +29,4 @@ export const Button = styled.button`
     flex-direction: column;
     align-items: flex-start;
   }
-  ${media.greaterThan("large")`
-  img {
-    width: 3.5rem;
-    height: 3rem;
-    margin: 0 2rem 0 0;
-  }
-  a{
-    font-size: large;
-  }
-  h4 {
-    font-size: x-large;
-    font-weight: 600;
-    color: #c1c1c6;
- }
-  `}
 `;

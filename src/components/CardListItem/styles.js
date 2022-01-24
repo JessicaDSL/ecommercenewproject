@@ -7,19 +7,23 @@ export const Background = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  padding: 2%;
-  margin: 2% 0;
+  padding: 3% 2%;
+  margin: 5% 0;
+  ${media.between("small", "medium")`
+  width: 70%;
+  margin: 2%;
+  `}
   ${media.between("medium", "large")`
   width: 45%;
   margin: 2%;
   `}
   ${media.between("large", "huge")`
-  width: 30%;
+  width: 45%;
   margin: 1%;
   `}
   ${media.greaterThan("huge")`
-  width: 30%;
-  margin: 1%;
+  width: 48%;
+  margin: .4%;
   `}
 `;
 
@@ -38,9 +42,10 @@ export const Container = styled.div`
     background: none;
     border: none;
     display: flex;
-    color: #dd3c66;
+    color: #ac1237;
     margin: 3% 0 0 0;
   }
+
   ${media.greaterThan("huge")`
   span {
     margin: 1rem 0;
@@ -56,50 +61,62 @@ export const Container = styled.div`
 export const Image = styled.div`
   margin: 3% 0 0 0;
   border-radius: 7px;
-  width: 7rem;
-  height: 8rem;
+  width: 35%;
+  height: 9.5rem;
   position: relative;
   overflow: hidden;
+  background: red;
   img {
-    position: relative;
-    bottom: 40%;
-    right: 70%;
-    width: 16rem;
-    height: 16rem;
+    width: 100%;
+    height: 100%;
     text-align: center;
     vertical-align: middle;
   }
-  ${media.greaterThan("huge")`
+  ${media.between("small", "medium")`
+  width: 7rem;
+  height: 7rem;
+  `}
+  ${media.between("large", "huge")`
   width: 9rem;
-  height: 11rem;
+  height: 8rem;
+  `}
+  ${media.greaterThan("huge")`
   `}
 `;
 
 export const Description = styled.div`
   margin: 0;
   width: 55%;
-  padding: 3%;
+  padding: 3% 0 0 0.5rem;
   display: flex;
   flex-direction: column;
   h5 {
     font-weight: normal;
+    color: #fbfbfb;
   }
   h3 {
     margin: 0;
     font-weight: 500;
+    color: #fbfbfb;
   }
   p {
     font-size: x-small;
-    color: #3e3d56;
+    color: #5e6174;
     font-weight: 600;
   }
   ${media.between("small", "medium")`
+  padding: .2rem 0 0 .5rem;
     h5 {
     font-size: medium;
   }
   h3 {
     font-size: large;
   }
+  p {
+    font-size: x-small;
+  }
+  `}
+  ${media.between("large", "huge")`
   p {
     font-size: medium;
   }
@@ -112,7 +129,7 @@ export const Description = styled.div`
     font-size: x-large;
   }
   p {
-    font-size: medium;
+    font-size: small;
   }
   `}
 `;
@@ -126,6 +143,7 @@ export const Price = styled.div`
   h4 {
     font-weight: 500;
     font-size: 0.8rem;
+    color: #fbfbfb;
   }
   span {
     font-size: 0.7rem;
@@ -148,6 +166,7 @@ export const Price = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    color: #fbfbfb;
   }
   ${media.greaterThan("huge")`
   h4 {

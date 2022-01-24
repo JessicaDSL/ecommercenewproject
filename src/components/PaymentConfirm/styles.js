@@ -13,6 +13,22 @@ export const Container = styled.div`
     font-weight: 500;
     margin: 1rem 0 1.6rem 0;
   }
+  ${media.between("medium", "large")`
+  h2 {
+    width: 67%;
+    font-size: x-large;
+    font-weight: 500;
+    margin: 2rem 0;
+  }
+  `}
+  ${media.greaterThan("large")`
+  h2 {
+    width: 48%;
+    font-size: x-large;
+    font-weight: 500;
+    margin: 2rem 0;
+  }
+  `}
 `;
 
 export const Background = styled.div`
@@ -25,6 +41,33 @@ export const Background = styled.div`
     margin: 0.5rem 0 0.5rem 0;
     font-weight: 800;
   }
+
+  ${media.between("small", "medium")`
+    h3 {
+      width: 92%;
+  }
+  `}
+  ${media.between("medium", "large")`
+  width: 65%;
+  `}
+  ${media.greaterThan("large")`
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    width: 98%;
+  }
+  `}
+`;
+
+export const Product = styled.div`
+  margin: 0 0 1rem 0;
+  ${media.greaterThan("small")`
+  display: flex;
+  flex-wrap: wrap;
+  `}
 `;
 
 export const TotalValue = styled.div`
@@ -33,10 +76,11 @@ export const TotalValue = styled.div`
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  width: 92%;
   span {
     font-size: small;
     font-weight: 300;
-    color: ##a1a2a9;
+    color: #a1a2a9;
   }
   b {
     font-size: xx-large;
@@ -51,7 +95,7 @@ export const TotalValue = styled.div`
     span {
       font-size: small;
       font-weight: 300;
-      color: ##a1a2a9;
+      color: #a1a2a9;
     }
   }
 `;
@@ -62,19 +106,27 @@ export const PaymentSelected = styled.div`
   margin: 1rem 0 0 0.5rem;
   padding: 0 0 1.5rem 0;
   border-bottom: 1px solid #3b3e50;
+  width: 100%;
   svg {
-    font-size: xxx-large;
+    font-size: xx-large;
     color: #fd4370;
+    margin: 0 0 0 1.5rem;
   }
   h4 {
     font-size: large;
     color: #e2e2e4;
-    margin: 0.5rem 0 0 1.4rem;
+    margin: 0.5rem 0 0 1.8rem;
   }
 `;
 export const CartItens = styled.div`
   width: 90%;
-  margin: 2rem 0;
+  margin: 2rem 0 0 1rem;
+  h1 {
+    margin: 0 0 0 3rem;
+  }
+  ${media.between("medium", "huge")`
+    margin: 4rem 0;
+  `}
   ${media.between("medium", "huge")`
     margin: 4rem 0;
   `}
@@ -85,7 +137,7 @@ export const CartItens = styled.div`
 
 export const Button = styled.button`
   margin: 2rem 0 5rem;
-  width: 90%;
+  width: 92%;
   height: 2.5rem;
   font-weight: 700;
   color: #ffffff;
@@ -93,4 +145,10 @@ export const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  ${media.between("medium", "large")`
+  width: 65%;
+  `}
+  ${media.greaterThan("large")`
+  width: 45%;
+  `}
 `;

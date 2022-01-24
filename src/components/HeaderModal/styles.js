@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
 export const Header = styled.header`
   display: flex;
@@ -33,19 +32,4 @@ export const Header = styled.header`
     border: none;
     color: #c1c1c6;
   }
-  ${media.greaterThan("large")`
-  margin: 0 0 .8rem 0;
-  height: 6rem;
-  button {
-    font-size: x-large;
-  }
-  div {
-    h2 {
-      font-size: x-large;
-    }
-    span {
-      font-size: smaller;
-    }
-  }
-  `}
 `;

@@ -1,25 +1,32 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   h2 {
     width: 100%;
-    margin: 0 0 4% 0;
-    padding: 0 0 0 1rem;
+    margin: 8% 0 4% 0;
+    padding: 0 0 0 0.9rem;
   }
-  div {
-    margin: 0 0 1.5rem 0;
-    label {
-      color: #7f8295;
-      font-size: small;
-      width: 100%;
-      margin: 0 0.2rem 0 0;
-    }
+  ${media.between("small", "medium")`
+  h2 {
+    width: 90%;
   }
+  `}
+  ${media.between("medium", "large")`
+  h2 {
+    width: 70%;
+  }
+  `}
+  ${media.greaterThan("large")`
+  h2 {
+    width: 50%;
+    margin: 5rem 0 4rem 0;
+  }
+  `}
 `;
 
 export const Form = styled.form`
@@ -28,7 +35,14 @@ export const Form = styled.form`
   display: flex;
   width: 70%;
   flex-direction: column;
-  button {
+  div {
+    margin: 0 0 1.5rem 0;
+    label {
+      color: #7f8295;
+      font-size: small;
+      width: 100%;
+      margin: 0 0.2rem 0 0;
+    }
   }
   input {
     width: 100%;
@@ -41,6 +55,28 @@ export const Form = styled.form`
       color: #3e3d56;
     }
   }
+  ${media.between("small", "medium")`
+    width: 85%;
+  `}
+  ${media.between("medium", "large")`
+  width: 60%;
+  `}
+  ${media.greaterThan("large")`
+  width: 40%;
+  margin: 0;
+  input {
+    padding: 10px;
+  }
+  div {
+    margin: 0 0 1.5rem 0;
+    label {
+      color: #7f8295;
+      font-size: medium;
+      width: 100%;
+      margin: 0 0.2rem 0 0;
+    }
+  }
+  `}
 `;
 
 export const Button = styled.button`
@@ -56,20 +92,7 @@ export const Button = styled.button`
 `;
 
 export const Warning = styled.span`
-  //background: ${({ state }) => (state ? "blue" : "red")};
   display: ${({ state }) => (state ? "none" : "flex")};
-  color: #4e2139;
-  font-size: xx-small;
-  margin: 0.2rem 0;
-  align-items: center;
-  svg {
-    font-size: x-small;
-  }
-`;
-
-export const WarningCartName = styled.span`
-  background: ${({ stateCartName }) => (stateCartName ? "green" : "red")};
-  //display: ${({ state }) => (state ? "none" : "flex")} ;
   color: #4e2139;
   font-size: xx-small;
   margin: 0.2rem 0;

@@ -17,6 +17,11 @@ export const Container = styled.div`
     font-size: medium;
     color: #cfcfd3;
   }
+  ${media.greaterThan("medium")`
+  h4, h3 {
+    width: 50%;
+  }
+  `}
 `;
 
 export const AppleLogo = styled.div`
@@ -30,10 +35,17 @@ export const AppleLogo = styled.div`
     font-size: xx-large;
     color: #fd7b9b;
   }
+  ${media.greaterThan("medium")`
+  font-size: x-large;
+  margin: 3rem 0 4rem 0;
+  `}
 `;
 
 export const List = styled.ul`
   width: 80%;
+  ${media.greaterThan("medium")`
+  width: 50%;
+  `}
 `;
 
 export const ListItem = styled.ul`
@@ -72,13 +84,19 @@ export const Form = styled.form`
       color: #fff;
     }
   }
+
+  ${media.greaterThan("medium")`
+  width: 40%;
+  margin: 1rem 0 0 0;
+  `}
 `;
 
 export const Content = styled.div`
   width: 96%;
-  margin: 1.6rem;
+  margin: 3.6rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   hr {
     width: 40%;
     border: 0.001rem solid #1b1e32;
@@ -89,8 +107,8 @@ export const Content = styled.div`
     font-size: xx-large;
     font-weight: 300;
   }
-  ${media.greaterThan("small")`
-  display: none;
+  ${media.greaterThan("medium")`
+  width: 50%;
     `}
 `;
 

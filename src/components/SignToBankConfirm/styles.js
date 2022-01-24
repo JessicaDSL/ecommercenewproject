@@ -40,19 +40,6 @@ export const Container = styled.div`
     letter-spacing: 0.2px;
     cursor: pointer;
   }
-  ${media.greaterThan("large")`
-  margin: 2% 0 0 2%;
-  padding: 3% 0% 2% 9%;
-  h2 {
-    font-size: xxx-large;
-    font-weight: 800;
-  }
-  p {
-    font-weight: 800;
-    letter-spacing: .5px;
-    font-size: x-large;
-  }
-  `}
 `;
 
 export const List = styled.ul`
@@ -76,11 +63,6 @@ export const Label = styled.label`
     margin: 0 0 0 0.5rem;
     font-size: small;
   }
-  ${media.greaterThan("large")`
-  span {
-    font-size: large;
-  }
-  `}
 `;
 
 export const Input = styled.input`
@@ -90,8 +72,4 @@ export const Input = styled.input`
   height: 0.8rem;
   border-radius: 2px;
   display: inline-block;
-  ${media.greaterThan("large")`
-  width: 1.5rem;
-  height: 1.5rem;
-  `}
 `;
