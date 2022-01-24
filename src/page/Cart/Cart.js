@@ -12,7 +12,9 @@ const Cart = () => {
   const { cart } = useContext(ProductContext);
   return (
     <Container>
-      <CartHeader />
+      <header>
+        <CartHeader />
+      </header>
       <h2>Checkout</h2>
       <CartListProduct>
         {cart.length > 0 ? (
