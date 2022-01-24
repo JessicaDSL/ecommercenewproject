@@ -1,8 +1,6 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { GrSearch } from "react-icons/gr";
-//import SearchIcon from '@material-ui/icons/Search';
-//import { SearchIcon, ThreeDRotation } from '@mui/icons-material'
 import SearchIcon from "@mui/icons-material/Search";
 
 import { ProductContext } from "../../context/ContextApi";
@@ -30,7 +28,7 @@ const SearchProduct = () => {
         <SearchIcon />
         <input
           type="text"
-          placeholder="Search for our sneaker"
+          placeholder="Search for your sneaker"
           onChange={(e) => onChangeHandler(e)}
         />
       </div>
