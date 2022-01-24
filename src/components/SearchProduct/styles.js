@@ -2,15 +2,14 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const Form = styled.form`
-  margin: 1rem 0 0 0;
+  margin: 1.8rem 0 0 0;
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;
-  color: #8d91a3;
-  width: 92%;
+  width: 90%;
   hr {
     border: 0;
-    background: #585a6d;
+    background: #232643;
     height: 1px;
   }
   ul {
@@ -27,7 +26,7 @@ export const Form = styled.form`
     li {
       width: 100%;
       border-bottom: 1px solid #585a6d;
-      color: white;
+      color: #fff;
       padding: 0.4rem 0;
       cursor: pointer;
       &:hover {
@@ -41,11 +40,11 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
     svg {
-      color: #8d91a3;
+      color: #4d4f5c;
+      font-size: large;
       margin: 0 0.5rem;
-
       ${media.greaterThan("large")`
-    margin: 0 0rem 0 4rem;
+      margin: 0 0rem 0 4rem;
     `}
     }
   }
@@ -57,12 +56,12 @@ export const Form = styled.form`
     font-weight: 100;
     letter-spacing: 0.5px;
     font-size: 1.1rem;
-    color: #8d91a3;
+    color: #4d4f5c;
     &::placeholder {
       width: 100%;
       font-weight: lighter;
       font-size: 1.1rem;
-      color: #8d91a3;
+      color: #4d4f5c;
       ${media.between("450px", "1170px")`
       font-size: 1.25rem;
       `}
@@ -70,6 +69,9 @@ export const Form = styled.form`
   }
   ${media.greaterThan("large")`
     font-size: large;
+    li {
+      font-size: x-large;
+    }
     input {
     font-size: xx-large;
     width: 94%;

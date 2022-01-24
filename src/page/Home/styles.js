@@ -9,18 +9,22 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  width: 92%;
-  margin: 0.7rem 0;
+  width: 100%;
   display: flex;
+  background: #191b2a;
+  height: 3.5rem;
+  margin: 0 0 1rem 0;
   justify-content: flex-end;
   align-items: center;
-  img {
-    border-radius: 50px;
-    width: 1.8rem;
-    height: 1.8rem;
-  }
+  border-bottom: 1px solid #1b1e32;
+  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.1);
   h1 {
     display: none;
+  }
+  h2 {
+    color: #fff;
+    font-size: x-large;
+    margin: 0 1rem 0 0.7rem;
   }
   ${media.greaterThan("large")`
     width: 100%;
@@ -32,14 +36,33 @@ export const Header = styled.header`
     height: 5rem;
     hr {
       width: 88%;
-    }img {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+    }
   h1 {
     display: block;
     width: 92%;
     text-align: center;
   }
+  h2 {
+    display: none;
+  }
   `}
+`;
+
+export const CartIcon = styled.div`
+  display: flex;
+  padding: 0 2rem 0 0;
+  cursor: pointer;
+  svg {
+    font-size: x-large;
+    color: #fb426f;
+  }
+  span {
+    color: #fff;
+    font-size: small;
+    position: relative;
+    border: 50%;
+    font-weight: 600;
+    top: 10px;
+    left: 2px;
+  }
 `;
