@@ -4,11 +4,10 @@ import React, { useContext } from "react";
 import { banks } from "./mock";
 import BankList from "../BankList";
 import { ProductContext } from "../../context/ContextApi";
-
-import { Container } from "./styles";
-
 import SecureInternetCertificate from "../SecureInternetCertificate/SecureInternetCertificate";
 import HeaderModal from "../HeaderModal";
+
+import { Container } from "./styles";
 
 const SelectBankFlag = () => {
   const { title, setTitle } = useContext(ProductContext);
