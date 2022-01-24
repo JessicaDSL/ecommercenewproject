@@ -10,7 +10,7 @@ const Footer = () => {
       <span>
         <FavoriteIcon />
       </span>{" "}
-      by Jéssica Lima
+      by <a href="https://jessicadsl.github.io/portfolio/">Jéssica Lima</a>
     </Container>
   );
 };
