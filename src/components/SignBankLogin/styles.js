@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
 export const Container = styled.div`
   color: #3e3d56;
   display: flex;
-  height: 100vh;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -59,14 +57,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 90vh;
   margin-bottom: 3rem;
-  ${media.between("small", "large")`
-  width: 60%;
-  `}
-  ${media.greaterThan("large")`
-    width: 30%;
-  `}
 `;
 
 export const Button = styled.button`
@@ -78,13 +69,6 @@ export const Button = styled.button`
   font-weight: 600;
   letter-spacing: 0.5px;
   color: #eff6fb;
-  &:disabled {
-    background: gray;
-    cursor: not-allowed;
-  }
-  ${media.greaterThan("large")`
-    margin: 1rem 0;
-  `}
 `;
 
 export const Input = styled.input`
@@ -117,7 +101,7 @@ export const BankLogo = styled.div`
 `;
 
 export const EmailWard = styled.span`
-  display: ${({ stateEmail }) => (stateEmail ? "none" : "flex")};
+  display: ${({ stateEmail }) => (stateEmail ? "none" : "block")};
   color: #4e2139;
   font-size: x-small;
   margin: 0.2rem 0;

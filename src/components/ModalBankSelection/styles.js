@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
 export const Background = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,13 +34,6 @@ export const Form = styled.form`
     font-weight: 500;
     font-size: small;
   }
-  ${media.greaterThan("large")`
-    width: 60%;
-    label {
-    margin: 0 0 0 1rem;
-    font-size: x-large;
-  }
-  `}
 `;
 
 export const Section = styled.div`
@@ -58,13 +49,6 @@ export const Section = styled.div`
     font-size: 0.7rem;
     margin: 0.6rem 0;
   }
-  ${media.greaterThan("large")`
-  max-height: 300px;
-  p {
-    font-size: large;
-    margin: 0.6rem 0;
-  }
-  `}
 `;
 
 export const Button = styled.button`
@@ -76,12 +60,8 @@ export const Button = styled.button`
   width: 100%;
   height: 2.6rem;
   border-radius: 4px;
-  cursor: ${({ checked }) => (checked ? "pointer" : "not-allowed")}
+  cursor: ${({ checked }) => (checked ? "pointer" : "not-allowed")};
   margin: 1.5rem 0 4rem 0;
-  ${media.greaterThan("large")`
-  height: xx-large;
-  height: 3rem;
-  `}
 `;
 
 export const BankLogo = styled.div`
