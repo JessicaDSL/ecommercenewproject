@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const ListItem = styled.li`
-  width: 84%;
+  width: 80%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ export const ListItem = styled.li`
   }
   h4,
   h2 {
-    color: #fff;
+    color: #fbfbfb;
     margin: 1rem 0;
     font-weight: 400;
     font-size: x-large;
@@ -46,7 +46,7 @@ export const ListItem = styled.li`
     margin: 1rem 0;
     padding: 1.4rem;
     h4, h2 {
-    color: #fff;
+    color: #fbfbfb;
     margin: 1.5rem 0;
     font-weight: 400;
     font-size: xx-large;
@@ -65,6 +65,7 @@ export const Info = styled.div`
   h3 {
     font-size: smaller;
     font-weight: 300;
+    color: #5e6174;
   }
   ${media.greaterThan("huge")`
   h3 {
@@ -95,12 +96,13 @@ export const Select = styled.select`
   height: 1.8rem;
   width: 4rem;
   padding: 0 0.2rem;
-  color: #8d8d8d;
+  color: #ad3257;
   margin: 0 0.6rem;
   border: 1px solid #1b1e32;
   font-size: 1rem;
   option {
     color: #fff;
+    background: #191b2a;
     &:hover {
       background: #8d8d8d;
     }
@@ -117,15 +119,15 @@ export const Content = styled.div`
   align-items: center;
   hr {
     width: 40%;
-    border: 0.001rem solid #1b1e32;
+    border: 1px solid #232643;
   }
   svg {
     margin: 0 1rem;
-    color: #1b1e32;
+    color: #232643;
     font-size: xx-large;
-    font-weight: 300;
+    font-weight: 100;
   }
-  ${media.greaterThan("small")`
+  ${media.greaterThan("medium")`
   display: none;
     `}
 `;
