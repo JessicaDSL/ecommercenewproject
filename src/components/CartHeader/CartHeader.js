@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
 
-import Photo from "../../assets/image/Jessy.jpeg";
-import { Header } from "./styles";
+import { Header, CartIcon, Container } from "./styles";
+import { ProductContext } from "../../context/ContextApi";
 
 const CartHeader = () => {
+  const { cart } = useContext(ProductContext);
   return (
     <Header>
-      <div>
-        <Link to="/">
-          <button>
-            <IoArrowBack /> <span>Back</span>
-          </button>
-        </Link>
-      </div>
-      <Link to="/cart/:initial">
+      <Container>
         <div>
-          <img src={Photo} alt="Foto Perfil" />
+          <Link to="/">
+            <button>
+              <ArrowBackIosIcon />
+            </button>
+          </Link>
         </div>
-      </Link>
+        <Link to="/cart/:initial">
+          <CartIcon>
+            <span>{cart.length}</span>
+            {cart.length <= 0 ? <MdOutlineShoppingCart /> : <MdShoppingCart />}
+          </CartIcon>
+        </Link>
+      </Container>
     </Header>
   );
 };
