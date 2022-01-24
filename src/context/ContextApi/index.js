@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -33,12 +34,21 @@ export const ProductProvider = ({ children }) => {
       photo: bigPhotoProduct,
       price: totalResult,
     };
-    toast.success("Item adicionado com sucesso", {
-      theme: "dark",
-    });
+
+    const hasSameItem = cart.some((car) => car.id === product.id);
+
+    !hasSameItem
+      ? setCart([...cart, product])
+      : toast.error("Esse item já esta no carrinho!", {
+          theme: "dark",
+        });
+    if (!hasSameItem) {
+      toast.success("Item adicionado com sucesso!", {
+        theme: "dark",
+      });
+    }
     const car = product.price;
     setValor([...valor, car]);
-    setCart([...cart, product]);
     setOpen(true);
   }
 
