@@ -14,6 +14,7 @@ import {
   TotalValue,
   Background,
   Button,
+  Product,
 } from "./styles";
 
 const PaymentConfirm = () => {
@@ -44,13 +45,15 @@ const PaymentConfirm = () => {
       <h2>Review and confirmation</h2>
       <Background>
         <h3>Order Summary</h3>
-        {cart.length > 0 ? (
-          cart.map((item) => <PurchasedProduct key={item.id} item={item} />)
-        ) : (
-          <CartItens>
-            <h1>You don't have items in your shopping cart yet! :(</h1>
-          </CartItens>
-        )}
+        <Product>
+          {cart.length > 0 ? (
+            cart.map((item) => <PurchasedProduct key={item.id} item={item} />)
+          ) : (
+            <CartItens>
+              <h1>You don't have items in your shopping cart yet! :(</h1>
+            </CartItens>
+          )}
+        </Product>
       </Background>
       <Background>
         <h3>Payment Method</h3>
