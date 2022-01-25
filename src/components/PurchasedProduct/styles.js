@@ -5,11 +5,11 @@ export const Background = styled.div`
   width: 100%;
   display: flex;
   margin: 0.5rem 0;
-  ${media.greaterThan("small")`
+  ${media.between("medium", "huge")`
   width: 50%;
   `}
-  ${media.greaterThan("large")`
-  padding: 0rem 0 0rem .5rem;
+  ${media.greaterThan("huge")`
+  width: 100%;
   `}
 `;
 
@@ -29,8 +29,11 @@ export const Container = styled.div`
     height: 2px;
     color: #dd3c66;
   }
-  ${media.greaterThan("medium")`
+  ${media.between("medium", "huge")`
   margin: 0.5rem;
+  width: 100%;
+  `}
+  ${media.greaterThan("huge")`
   width: 100%;
   `}
 `;
@@ -42,17 +45,16 @@ export const Image = styled.div`
     height: 6rem;
     border-radius: 7px;
   }
-  ${media.between("small", "medium")`
+  ${media.between("small", "huge")`
   img {
     width: 5rem;
     height: 5rem;
   }
   `}
-  ${media.greaterThan("medium")`
+  ${media.greaterThan("huge")`
   img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 7px;
+    width: 7rem;
+    height: 7rem;
   }
   `}
 `;
@@ -102,4 +104,15 @@ export const Description = styled.div`
     }
     }
   `}
-`;
+  ${media.greaterThan("large")`
+  div {
+      h2 {
+      font-size: large;
+    }
+    p {
+      font-size: medium;
+    }
+    }
+  
+  `}
+  `;

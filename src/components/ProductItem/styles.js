@@ -8,8 +8,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   header {
-    width: 96%;
-    margin: 1rem 0 0 0;
+    width: 100%;
   }
 `;
 
@@ -91,4 +90,13 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  ${media.between("medium", "large")`
+  margin: 3rem;
+  width: 40%;
+  `}
+
+  ${media.greaterThan("large")`
+  margin: 4rem;
+  width: 19%;
+  `}
 `;

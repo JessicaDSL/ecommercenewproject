@@ -13,7 +13,7 @@ export const Container = styled.form`
   width: 52%;
   `}
   ${media.greaterThan("large")`
-  width: 45%;
+  width: 35%;
   `}
 `;
 
@@ -60,10 +60,10 @@ export const OnlinePayBackground = styled.div`
   }
   `}
   ${media.greaterThan("huge")`
-  height: 7rem;
+  height: 5.5rem;
   padding: 0 1.2rem;
   span {
-    font-size: large;
+    font-size: medium;
   }
   `}
 `;
@@ -107,14 +107,14 @@ export const CardPayment = styled.div`
   }
   `}
   ${media.greaterThan("huge")`
-  height: 7.2rem;
+  height: 5.5rem;
   padding: 0 1rem;
   p{
-    font-size: xx-large;
+    font-size: x-large;
   }
   div {
     img {
-    width: 6rem;
+    width: 4rem;
   }
   }
   `}
@@ -168,10 +168,10 @@ export const ApplePayment = styled.div`
   }
   `}
   ${media.greaterThan("huge")`
-  height: 7.2rem;
+  height: 5.2rem;
   padding: 0 2rem;
   div, span {
-    font-size: xx-large;
+    font-size: x-large;
   }
   svg {
     font-size: x-large;
@@ -207,7 +207,7 @@ export const PaymentOnline = styled.div`
   `}
   ${media.greaterThan("huge")`
   p {
-    font-size: xx-large;
+    font-size: x-large;
   }
   `}
 `;
@@ -233,7 +233,7 @@ export const ImageFlags = styled.div`
   `}
   ${media.greaterThan("huge")`
     img {
-    width: 2rem;
+    width: 1.8rem;
     margin: 0 .3rem;
   }
   span {
@@ -255,13 +255,6 @@ export const Btn = styled.button`
   border: none;
   border-radius: 7px;
   cursor: pointer;
-  &:disabled {
-    background: gray;
-    cursor: not-allowed;
-  }
-  ${media.between("medium", "huge")`
-
-  `}
   ${media.between("medium", "large")`
     width: 90%;
     padding: 1.2rem 0;
@@ -276,8 +269,8 @@ export const Btn = styled.button`
   `}
   ${media.greaterThan("huge")`
     width: 90%;
-    padding: 2rem 0;
-    font-size: x-large;
+    padding: 1rem 0;
+    font-size: large;
   `}
 `;
 

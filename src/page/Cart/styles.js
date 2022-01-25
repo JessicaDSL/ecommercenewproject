@@ -43,7 +43,7 @@ export const Container = styled.div`
       margin: 4rem 0 0 0;
     }
     h6 {
-      width: 50%;
+      width: 38%;
       font-weight: 500;
       margin: 2rem 0 5rem 0;
       font-size: x-large;

@@ -52,10 +52,6 @@ export const Background = styled.div`
   `}
   ${media.greaterThan("large")`
   width: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   h3 {
     width: 98%;
   }
@@ -67,6 +63,10 @@ export const Product = styled.div`
   ${media.greaterThan("small")`
   display: flex;
   flex-wrap: wrap;
+  `}
+  ${media.greaterThan("large")`
+  flex-direction: row;
+  flex-wrap: nowrap;
   `}
 `;
 
