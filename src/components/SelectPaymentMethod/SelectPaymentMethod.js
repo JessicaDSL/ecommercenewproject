@@ -72,7 +72,7 @@ const SelectPaymentMethod = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { getUrl } = useContext(ProductContext);
+  const { getUrl, cart } = useContext(ProductContext);
 
   useEffect(() => {
     getUrl(selectedPaymenth);
@@ -147,6 +147,10 @@ const SelectPaymentMethod = () => {
         onClick={() => {
           if (!selectedPaymenth) {
             toast.error("Select one of the payment options!", {
+              theme: "dark",
+            });
+          } else if (cart <= 0) {
+            toast.error("Cart is empty, please select a product!", {
               theme: "dark",
             });
           } else if (selectedPaymenth === "/selectbank") {
