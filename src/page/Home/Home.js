@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import api from "../../services/api";
 import Footer from "../../components/Footer/Footer";
@@ -13,6 +15,9 @@ import { Container, Header, CartIcon } from "./styles";
 
 const Home = () => {
   const { setProducts, cart } = useContext(ProductContext);
+
+  const navigate = useNavigate();
+
   const fetchProduct = () => {
     return api
       .get("sneakers/index.json")
@@ -51,12 +56,22 @@ const Home = () => {
       <Header>
         <h1>Sneakers</h1>
         <h2>GoJessyStore</h2>
-        <Link to="/cart/initial">
-          <CartIcon>
-            <span>{cart.length}</span>
-            {cart.length <= 0 ? <MdOutlineShoppingCart /> : <MdShoppingCart />}
-          </CartIcon>
-        </Link>
+
+        <CartIcon
+          onClick={() => {
+            cart <= 0
+              ? toast.error(
+                  "Cart is empty, please select a product!",
+                  {
+                    theme: "dark",
+                  }
+                )
+              : navigate("/cart/initial");
+          }}
+        >
+          <span>{cart.length}</span>
+          {cart.length <= 0 ? <MdOutlineShoppingCart /> : <MdShoppingCart />}
+        </CartIcon>
       </Header>
       <SearchProduct />
       <HomeProductList />
