@@ -13,7 +13,7 @@ export const Container = styled.div`
     justify-content: center;
   }
   svg {
-    color: #fd6489;
+    color: #21c15f;
     font-size: 1120%;
   }
   p {
