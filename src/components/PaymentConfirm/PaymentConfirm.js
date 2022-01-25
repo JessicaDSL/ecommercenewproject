@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { BsBank2 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { toast } from "react-toastify";
 
 import CartHeader from "../CartHeader";
 import Footer from "../Footer";
@@ -75,7 +76,10 @@ const PaymentConfirm = () => {
           </div>
         </TotalValue>
       </Background>
-      <Button onClick={() => navigate("/completedpurchase")}>
+      <Button onClick={() => {if (cart <= 0) {
+            toast.error("Cart is empty, please select a product!", {
+              theme: "dark",
+            }) } else {navigate("/completedpurchase")}} }>
         Place order
       </Button>
       <Footer />
