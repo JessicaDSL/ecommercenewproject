@@ -8,4 +8,4 @@ O e-commerce funciona como uma loja virtual e representa um canal de vendas onli
 
 ### Project Demonstration
 
-![alt-text](hhttps://media.giphy.com/media/5rzdI0rVXrUjO7oXLM/giphy.gif)
+![alt-text](https://media.giphy.com/media/5rzdI0rVXrUjO7oXLM/giphy.gif)
