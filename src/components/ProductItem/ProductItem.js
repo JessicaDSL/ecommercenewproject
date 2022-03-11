@@ -16,14 +16,12 @@ import {
 const ProductItem = () => {
   const { cartItem, handleAddNewProduct } = useContext(ProductContext);
 
-  console.log(cartItem);
   const [sizeProduct, setSizeProduct] = useState(37);
   const [quantityValue, setQuantityValue] = useState(1);
   const [totalResult, setTotalResult] = useState();
 
   const size = cartItem.size;
   const quantity = cartItem.quantity;
-  console.log(cartItem.price, "cartItem");
 
   useEffect(() => {
     const totalValue = quantityValue * cartItem.price;
