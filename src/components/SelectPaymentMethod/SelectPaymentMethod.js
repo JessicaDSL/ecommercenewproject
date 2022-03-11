@@ -178,10 +178,3 @@ const SelectPaymentMethod = () => {
 };
 
 export default SelectPaymentMethod;
-//navigate(selectedPaymenth)
-//<button onClick={()=>navigate(selectedPaymenth)}>aqui</button>
-/*!selectedPaymenth
-            ? toast.error("Select one of the payment options!", {
-                theme: "dark",
-              })
-            : handleOpen()*/

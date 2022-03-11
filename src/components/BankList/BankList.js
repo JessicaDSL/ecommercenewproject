@@ -77,5 +77,3 @@ const BankList = ({ banks = [] }) => {
 };
 
 export default BankList;
-
-//<Link to="/continue"></Link>

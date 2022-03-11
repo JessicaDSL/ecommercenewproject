@@ -24,4 +24,3 @@ const CompletedPurchase = () => {
 };
 
 export default CompletedPurchase;
-//<Link to="/">
